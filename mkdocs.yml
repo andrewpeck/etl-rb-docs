@@ -1,7 +1,7 @@
 # setup doc: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
 #
 site_name: CMS ETL Readout Board
-site_url: https://apollo-lhc.gitlab.io/mkdocs
+site_url: http://etl-rb.web.cern.ch/
 site_dir: public
 theme:
   name: material
@@ -18,5 +18,5 @@ theme:
 
   # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
   palette:
-    primary: 'darkgreen'
+    primary: 'green'
     accent: 'blue'
