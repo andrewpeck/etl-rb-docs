@@ -1,4 +1,6 @@
-# Document Title
+# Board Tracking
+
+## Readout Boards
 
 | Board # | Fusing | Notes | Location |
 | ---     | ---    | ---   | ---      |
