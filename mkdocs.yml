@@ -5,9 +5,8 @@ site_url: http://etl-rb.web.cern.ch/
 site_dir: public
 theme:
   name: material
-    #logo: './images/apollo.png'
-    #favicon: './images/apollo.png'
-  #favicon: images/favicon.png
+  logo: './images/cms_logo.jpeg'
+  favicon: './images/cms_logo.jpeg'
   features:
     - navigation.instant
     - navigation.tracking
