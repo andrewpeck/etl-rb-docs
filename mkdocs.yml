@@ -1,0 +1,22 @@
+# setup doc: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+#
+site_name: Apollo LHC Documentation
+site_url: https://apollo-lhc.gitlab.io/mkdocs
+site_dir: public
+theme:
+  name: material
+    #logo: './images/apollo.png'
+    #favicon: './images/apollo.png'
+  #favicon: images/favicon.png
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
+    - toc.integrate
+
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+  palette:
+    primary: 'blue'
+    accent: 'red'
