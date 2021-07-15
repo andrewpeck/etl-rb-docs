@@ -17,5 +17,5 @@ theme:
 
   # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
   palette:
-    primary: 'green'
+    primary: 'teal'
     accent: 'blue'
