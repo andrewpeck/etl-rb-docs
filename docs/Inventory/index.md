@@ -1,4 +1,4 @@
-# Board Tracking
+# Board Inventory
 
 ## Readout Boards
 
