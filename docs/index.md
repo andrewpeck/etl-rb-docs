@@ -1,6 +1,6 @@
 # Home
 
-CMS ETL Readout Board 
+CMS ETL Readout Board
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor
 tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis
@@ -9,9 +9,8 @@ parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae dolor.
 Nullam tristique diam non turpis. Cras placerat accumsan nulla. Nullam rutrum.
 Nam vestibulum accumsan nisl.
 
-
-
 ## Useful Links
+
 - Readout Board PCB - <https://gitlab.cern.ch/cms-etl-electronics/readout-board-pcb>
 - RB+Module Test Firmware - <https://gitlab.cern.ch/cms-etl-electronics/module_test_fw>
 - RB+Module Test Software - <https://gitlab.cern.ch/cms-etl-electronics/module_test_sw>
@@ -32,3 +31,7 @@ Nam vestibulum accumsan nisl.
 - 2021/05/10 - [Emulator v1 Update](https://indico.cern.ch/event/1037766/contributions/4357988/attachments/2242193/3801880/Emulator%20updates%2020210510%20V3.pdf) (Andy L.)
 - 2021/05/17 - [Power Board Status](https://indico.cern.ch/event/1039531/contributions/4366460/attachments/2245627/3808234/ETL-MultyChannel-bPOL-Proto-S_Los-May17-2021.pdf) (Sergey L.)
 - 2021/07/13 - [ETROC Status](https://indico.cern.ch/event/1058347/contributions/4450858/attachments/2281282/3877914/ETROC2-status-V1.pdf) - (Ted L.)
+- 2021/08/30 - [Emulator Update](https://indico.cern.ch/event/1070316/contributions/4500708/attachments/2300134/3912295/Emulator%20updates%2020210830_v5.pdf) - (Andy L.)
+- 2021/08/30 - [ETROC Update](https://indico.cern.ch/event/1070316/contributions/4500709/attachments/2300136/3912297/Towards-ETROC2-Aug30-2021.pdf) - (Ted L.)
+- 2021/08/30 - [RB Plans Update](https://indico.cern.ch/event/1070316/contributions/4500707/attachments/2300153/3912329/20210830_etl_rb_plans.pptx.pdf) - (Andy P.)
+- 2021/08/30 - [RB Testing](https://indico.cern.ch/event/1070316/contributions/4504116/attachments/2300135/3912296/Readout%20Board%20Status%20Update%208-30-21.pdf) - (Chris M.)
