@@ -30,3 +30,5 @@ CMS ETL Readout Board
 - 2021/08/30 - [RB Testing](https://indico.cern.ch/event/1070316/contributions/4504116/attachments/2300135/3912296/Readout%20Board%20Status%20Update%208-30-21.pdf) - (Chris M.)
 - 2021/09/20 - [Update on power board v1](https://indico.cern.ch/event/1078196/contributions/4534885/attachments/2312780/3936290/ETL-DC-DC-Converter-S_Los-Sep20-2021.pdf) - (Sergey Los)
 - 2021/10/18 - [Next steps for the PB design](https://indico.cern.ch/event/1088033/contributions/4574114/attachments/2329314/3968911/ETL-SingleChannel-DC-DC-Converter-S_Los-Oct04-2021.pdf) - (Sergey Los)
+- 2021/10/25 - [DC-DC Converter(Output Voltage Ripple Edition)](https://indico.cern.ch/event/1090414/contributions/4584064/attachments/2333416/3976947/ETL-DC-DC-Converter2-S_Los-Oct25-2021.pdf) - (Sergey Los)
+- 2021/10/25 - [ETROC2 Bump Bonding Option](https://indico.cern.ch/event/1090414/contributions/4584063/attachments/2333913/3977867/20211025_ETROC2BumpPads.pdf) - Q. Sun
