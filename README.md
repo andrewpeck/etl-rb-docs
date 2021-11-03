@@ -1,7 +1,7 @@
-# [ETL Readout Board Docs](http://etl-rb.web.cern.ch/)
+# [ETL Readout Board Docs](http://etl-rb.docs.cern.ch/)
 
 This repository hosts the source code for the
-[ETL Readout Board](http://etl-rb.web.cern.ch/) documentation page.
+[ETL Readout Board](http://etl-rb.docs.cern.ch/) documentation page.
 
 ## Building locally
 
