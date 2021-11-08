@@ -20,6 +20,7 @@ CMS ETL Readout Board
     - 2021/09/20 - [Update on power board v1](https://indico.cern.ch/event/1078196/contributions/4534885/attachments/2312780/3936290/ETL-DC-DC-Converter-S_Los-Sep20-2021.pdf) (Sergey Los)
     - 2021/10/18 - [Next steps for the PB design](https://indico.cern.ch/event/1088033/contributions/4574114/attachments/2329314/3968911/ETL-SingleChannel-DC-DC-Converter-S_Los-Oct04-2021.pdf) (Sergey Los)
     - 2021/10/25 - [DC-DC Converter(Output Voltage Ripple Edition)](https://indico.cern.ch/event/1090414/contributions/4584064/attachments/2333416/3976947/ETL-DC-DC-Converter2-S_Los-Oct25-2021.pdf) (Sergey Los)
+    - 2021/10/28 - [Update on LV powering scheme and Services](https://indico.cern.ch/event/1092037/contributions/4592092/attachments/2336204/3982128/2021-10-28_ETL%20integration%20meeting.pdf) (Natalia K.)
 - Readout Board
     - 2020/04/05 - [ETL Readout Board v2](https://indico.cern.ch/event/906805/contributions/3815774/attachments/2016073/3369701/2020-04-05-ETL-RBv2-Boston.pdf) (Andy P.)
     - 2020/07/13 - [Readout Board Interfaces](https://indico.cern.ch/event/939160/contributions/3946133/attachments/2073487/3481402/20200713_readout_board_interfaces.pdf) (Andy P.)
