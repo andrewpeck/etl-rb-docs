@@ -34,7 +34,7 @@ CMS ETL Readout Board
     - 2021/08/30 - [ETROC Update](https://indico.cern.ch/event/1070316/contributions/4500709/attachments/2300136/3912297/Towards-ETROC2-Aug30-2021.pdf) (Ted L.)
     - 2021/10/25 - [ETROC2 Bump Bonding Option](https://indico.cern.ch/event/1090414/contributions/4584063/attachments/2333913/3977867/20211025_ETROC2BumpPads.pdf) (Q. Sun)
     - 2021/01/31 - [Revisiting the System Interface of ETROC2 before it is Finalized](https://indico.cern.ch/event/1122502/contributions/4712326/attachments/2381992/4070121/ETROC-system-interface-Andy-v6.pdf) (Andy L.)
-    - 2021/01/31 - ETROC Update (slides not posted)
+    - 2021/01/31 - ETROC Update (slides not posted https://indico.cern.ch/event/1122502/)
 - Emulator
     - 2020/04/27 - [EIE Dataformat](https://indico.cern.ch/event/912420/contributions/3837314/attachments/2026902/3391190/Andy_Liu_-_Emulator_v1.1.pdf) (Andy L.)
     - 2021/05/10 - [Emulator v1 Update](https://indico.cern.ch/event/1037766/contributions/4357988/attachments/2242193/3801880/Emulator%20updates%2020210510%20V3.pdf) (Andy L.)
