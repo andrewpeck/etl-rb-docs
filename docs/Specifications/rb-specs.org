@@ -13,15 +13,19 @@
 #+MACRO: SPEC *Spec:*
 #+MACRO: COUNT_UNKNOWNS (eval (count-matches "{{{UNKNOWN}}}"))
 #+MACRO: COUNT_SPECS (eval (count-matches "{{{SPEC}}}"))
+#+MACRO: COMPLETENESS (eval (format "%3.1f" (* 100 (- 1 (/ (float (count-matches "{{{UNKNOWN}}}")) (count-matches "{{{SPEC}}}"))))))
 #+LATEX_HEADER:
 
 * Readout Board Specifications
 
+Authors: {{{author}}}
+
 Modification Date: {{{time(%Y-%m-%d %H:%M)}}}
 
-This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications.
+Status: This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications
+ - Specifications are (*{{{COMPLETENESS}}}% complete*).
 
-A pdf version of this document can be found [[./rb-specs.pdf][here]]. Please check the timestamp to ensure it is up to date.
+A pdf version of this document can be found [[./rb-specs.pdf][here]]. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [[./rb-specs.org][here]].
 
 #+TOC: headlines 3
 
@@ -37,6 +41,10 @@ The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number o
 - {{{SPEC}}} Each RB will have 2 lpGBTs
 - {{{SPEC}}} Each RB will have 1 VTRX+
 - {{{SPEC}}} Each RB will have 6 linPOL12s
+  - 2 for VTRX+ RX
+  - 2 for VTRX+ TX
+  - 1 for GBT-SCA analog power
+  - 1 for GBT-SCA digital power
 
 ** Interfaces
 *** Power Board
@@ -165,8 +173,6 @@ The readout board will monitor the following analog channels:
 # Local Variables:
 # fill-column: 80
 # eval: (make-variable-buffer-local 'after-save-hook)
-# eval: (make-variable-buffer-local 'after-load-hook)
-# eval: (add-hook 'after-save-hook #'org-html-export-to-html nil 'local)
 # eval: (add-hook 'after-save-hook (lambda () (org-export-to-file 'md (concat (file-name-base) ".md"))) nil 'local)
 # eval: (progn (org-babel-goto-named-src-block "startup") (org-babel-execute-src-block))
 # End:

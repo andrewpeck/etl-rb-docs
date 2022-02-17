@@ -2,36 +2,40 @@
 
 # Readout Board Specifications
 
-Modification Date: 2022-02-17 17:59
+Authors: Andrew Peck, Daniel Spitzbart
 
-This document is missing 31 pieces of information concerning  33 specifications.
+Modification Date: 2022-02-17 18:08
 
-A pdf version of this document can be found [here](./rb-specs.pdf). Please check the timestamp to ensure it is up to date.
+Status: This document is missing 31 pieces of information concerning  33 specifications
+
+-   Specifications are (**6.1% complete**).
+
+A pdf version of this document can be found [here](./rb-specs.pdf). Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [here](./rb-specs.md).
 
 
 # Table of Contents
 
-1.  [Readout Board Specifications](#orgf9d627c)
-2.  [Specifications](#org6be9114)
-    1.  [Description](#org26c6611)
-    2.  [Interfaces](#orga282d31)
-        1.  [Power Board](#org2b8e286)
-        2.  [Module](#org996c029)
-        3.  [Fiber Optic](#org3314cd9)
-        4.  [Low Voltage](#org798f77d)
-    3.  [Signal Connectivity](#orged45f88)
-        1.  [I2C](#org4a63646)
-        2.  [SCA IO](#orgf42029d)
-        3.  [Uplink E-links](#org093162c)
-        4.  [Downlink E-links](#org5062934)
-        5.  [Clocking](#org837d9fa)
-        6.  [VTRX](#orgb6a7ff9)
-    4.  [Monitoring](#org75fd9de)
-    5.  [Low Voltage Distribution](#orgfacbe4d)
-    6.  [Bias Voltage Distribution](#orgf1ebc7c)
-    7.  [Mechanics](#org58065ea)
-        1.  [Outer Dimensions](#orga1b826d)
-    8.  [Component List](#orgd02eb76)
+1.  [Readout Board Specifications](#org15c2985)
+2.  [Specifications](#org52cefa6)
+    1.  [Description](#org8af4ba7)
+    2.  [Interfaces](#orgc3bad85)
+        1.  [Power Board](#orgc65079b)
+        2.  [Module](#orgefba204)
+        3.  [Fiber Optic](#orgc078893)
+        4.  [Low Voltage](#org2e974fe)
+    3.  [Signal Connectivity](#org9700756)
+        1.  [I2C](#orgf52768c)
+        2.  [SCA IO](#org593c611)
+        3.  [Uplink E-links](#org8c827ac)
+        4.  [Downlink E-links](#orgf6fc873)
+        5.  [Clocking](#org6f2d36c)
+        6.  [VTRX](#org2c904df)
+    4.  [Monitoring](#org69d34e2)
+    5.  [Low Voltage Distribution](#org72025cc)
+    6.  [Bias Voltage Distribution](#orgd211ed3)
+    7.  [Mechanics](#orgd1c393c)
+        1.  [Outer Dimensions](#org70cb513)
+    8.  [Component List](#org0edde08)
 
 
 # Specifications
@@ -47,6 +51,10 @@ The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number o
 -   **Spec:** Each RB will have 2 lpGBTs
 -   **Spec:** Each RB will have 1 VTRX+
 -   **Spec:** Each RB will have 6 linPOL12s
+    -   2 for VTRX+ RX
+    -   2 for VTRX+ TX
+    -   1 for GBT-SCA analog power
+    -   1 for GBT-SCA digital power
 
 
 ## Interfaces
