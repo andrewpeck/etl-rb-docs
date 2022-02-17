@@ -1,0 +1,172 @@
+#+TITLE: Readout Board Specifications
+#+OPTIONS: author:Andrew Peck, Daniel Spitzbart
+#+AUTHOR: Andrew Peck, Daniel Spitzbart
+#+EMAIL: andrew.peck@cern.ch
+#+HTML_HEAD: <link href="theme.css" rel="stylesheet">
+#+STARTUP: latexpreview
+#+STARTUP: fninline
+#+STARTUP: fnadjust
+#+OPTIONS: toc:nil
+#+OPTIONS: ^:nil
+# UNKNOWN (eval (apply 'concat (make-list 5 "\\under{}")))
+#+MACRO: UNKNOWN _UNKNOWN_
+#+MACRO: SPEC *Spec:*
+#+MACRO: COUNT_UNKNOWNS (eval (count-matches "{{{UNKNOWN}}}"))
+#+MACRO: COUNT_SPECS (eval (count-matches "{{{SPEC}}}"))
+#+LATEX_HEADER:
+
+* Readout Board Specifications
+
+Modification Date: {{{time(%Y-%m-%d %H:%M)}}}
+
+This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications.
+
+A pdf version of this document can be found [[./rb-specs.pdf][here]]. Please check the timestamp to ensure it is up to date.
+
+#+TOC: headlines 3
+
+* Specifications
+
+** Description
+
+The readout board will be designed in 3 different flavors, called the RB-3, RB-6, and RB-7, where the suffix number represents the number of "full-modules" that the readout board services.
+
+The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number of linPOL12 regulators, and associated connectors / passive components required to interface with the external systems.
+
+- {{{SPEC}}} Each RB will have 1 GBT-SCA
+- {{{SPEC}}} Each RB will have 2 lpGBTs
+- {{{SPEC}}} Each RB will have 1 VTRX+
+- {{{SPEC}}} Each RB will have 6 linPOL12s
+
+** Interfaces
+*** Power Board
+The interface to the power board will consist of:
+- {{{SPEC}}} The power board interface will use connector part number {{{UNKNOWN}}}.
+- {{{SPEC}}} The pinout of these connectors is {{{UNKNOWN}}}.
+- {{{SPEC}}} The placement of these connectors is {{{UNKNOWN}}}.
+- {{{SPEC}}} The quantity of these connectors is {{{UNKNOWN}}}.
+*** Module
+**** Signal Interface
+The signal interface to the module will consist of:
+- {{{SPEC}}} The module will use connector part number {{{UNKNOWN}}}.
+- {{{SPEC}}} The pinout of the module connectors is {{{UNKNOWN}}}.
+- {{{SPEC}}} The placement of these connectors is {{{UNKNOWN}}}.
+**** BV Interface
+The signal interface to the module will consist of:
+- {{{SPEC}}} The BV to module interface will use connector part number {{{UNKNOWN}}}.
+- {{{SPEC}}} The pinout of these connectors is {{{UNKNOWN}}}.
+- {{{SPEC}}} The placement of these connectors is {{{UNKNOWN}}}.
+*** Fiber Optic
+The fiber optic interface to CMS is through a VTRX+. The readout board will host both the VTRX+, as well as the MT Ferrule that is required to connect between the VTRX+ and a "naked fanout".
+- {{{SPEC}}} The size of the cutout for the MT ferrule is {{{UNKNOWN}}}.
+- The location of the cutout for the MT ferrule is:
+  - {{{SPEC}}} RB-3: {{{UNKNOWN}}}.
+  - {{{SPEC}}} RB-6: {{{UNKNOWN}}}.
+  - {{{SPEC}}} RB-7: {{{UNKNOWN}}}.
+*** Low Voltage
+The readout board will connect to the low voltage supply to receive ~8V power.
+- {{{SPEC}}} The part number for the LV connector is {{{UNKNOWN}}}.
+- {{{SPEC}}} The pinout for the LV connector is {{{UNKNOWN}}}.
+- {{{SPEC}}} The placement for the LV connector is {{{UNKNOWN}}}.
+** Signal Connectivity
+*** I2C
+- {{{SPEC}}} The GBT-SCA will provide one I2C connection for each module.
+- {{{SPEC}}} All ETROCs in a module will share an I2C master.
+- {{{SPEC}}} The readout board will provide strong I2C pull-ups.
+  - It is assumed that the modules will not, and have only weak pull-ups.
+*** SCA IO
+*** Uplink E-links
+*** Downlink E-links
+*** Clocking
+*** VTRX
+** Monitoring
+The readout board will monitor the following analog channels:
+
+|                     |          RB-3 |          RB-6 |          RB-7 |
+|---------------------+---------------+---------------+---------------|
+| Sensor Bias Voltage | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+| ETROC Low Voltage   | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+| VTRX +2.5V RX       |             1 |             1 |             1 |
+| VTRX +2.5V TX       |             1 |             1 |             1 |
+| GBTX +1.5VD         |             1 |             1 |             1 |
+| GBTX +1.5VA         |             1 |             1 |             1 |
+| RB Low Voltage      |             1 |             1 |             1 |
+| VTRX RSSI           |             1 |             1 |             1 |
+| VTRX Temperature    |             1 |             1 |             1 |
+| Temperature Sensors | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+
+- {{{SPEC}}} Bias voltage monitoring will be through a resistive voltage divider
+  - It is formed of two 50Mohm resistors (HVC1206T5005JET) and one 82k resistor (RR0510P-823-D) with accuracy of 0.5% for each resistor.
+  - The divider 82/100000=0.00082, providing a nominal monitoring range of 0-1219 volts.
+  - The bias voltage will be monitored by the GBT-SCA.
+
+** Low Voltage Distribution
+- {{{SPEC}}} The readout board will provide four 47 uF capacitors connected to each 1.2V ETROC supply.
+  - There will be no additional filtering.
+- {{{SPEC}}} Analog and digital power for the ETROC will not be distinguished.
+- {{{SPEC}}} The low voltage will be ganged such that {{{UNKNOWN}}} ETROCs share a common power supply.
+** Bias Voltage Distribution
+- {{{SPEC}}} Bias voltage will be a maximum of {{{UNKNOWN}}} volts.
+- The bias voltage granularity will be:
+  - {{{SPEC}}} {{{UNKNOWN}}} channels for an RB-3
+  - {{{SPEC}}} {{{UNKNOWN}}} channels for an RB-6
+  - {{{SPEC}}} {{{UNKNOWN}}} channels for an RB-7
+- {{{SPEC}}} The readout board will provide a filter for each bias voltage channel consisting of a 200 ohm resistor and 1500 pF capacitor.
+** Mechanics
+*** Outer Dimensions
+**** Connector Placements
+** Component List
+
+* Latex Configuration :noexport:
+
+#+NAME: startup
+#+BEGIN_SRC emacs-lisp :outputs none :results none
+(add-to-list
+ 'org-latex-classes
+ '(
+   "article"
+   "\\documentclass[11pt]{article}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{fixltx2e}
+\\usepackage{fullpage}
+\\usepackage{graphicx}
+\\usepackage{longtable}
+\\usepackage{float}
+\\usepackage{wrapfig}
+\\usepackage{rotating}
+\\usepackage[normalem]{ulem}
+\\usepackage{amsmath}
+\\usepackage{textcomp}
+\\usepackage{marvosym}
+\\usepackage{wasysym}
+\\usepackage{amssymb}
+\\usepackage{hyperref}
+%\\usepackage{mathpazo}
+\\renewcommand{\\familydefault}{\\sfdefault}
+\\usepackage{color}
+\\usepackage{enumerate}
+\\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\\tolerance=1000
+[NO-DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]
+\\linespread{1.1}
+\\hypersetup{pdfborder=0 0 0}"
+   ("\\section{%s}"       . "\\section*{%s}")
+   ("\\subsection{%s}"    . "\\subsection*{%s}")
+   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+   ("\\paragraph{%s}"     . "\\paragraph*{%s}")
+   ("\\subparagraph{%s}"  . "\\subparagraph*{%s}"))
+ )
+#+END_SRC
+
+* Local Variables :noexport:
+# Local Variables:
+# fill-column: 80
+# eval: (make-variable-buffer-local 'after-save-hook)
+# eval: (make-variable-buffer-local 'after-load-hook)
+# eval: (add-hook 'after-save-hook #'org-html-export-to-html nil 'local)
+# eval: (add-hook 'after-save-hook (lambda () (org-export-to-file 'md (concat (file-name-base) ".md"))) nil 'local)
+# eval: (progn (org-babel-goto-named-src-block "startup") (org-babel-execute-src-block))
+# End:
