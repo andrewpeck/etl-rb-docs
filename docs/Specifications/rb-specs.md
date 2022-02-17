@@ -4,38 +4,39 @@
 
 Authors: Andrew Peck, Daniel Spitzbart
 
-Modification Date: 2022-02-17 18:08
+Modification Date: 2022-02-17 18:11
 
-Status: This document is missing 31 pieces of information concerning  33 specifications
+Status: This document is missing 34 pieces of information concerning  38 specifications
 
--   Specifications are (**6.1% complete**).
+-   Specifications are **10.5% complete**.
 
 A pdf version of this document can be found [here](./rb-specs.pdf). Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [here](./rb-specs.md).
 
 
 # Table of Contents
 
-1.  [Readout Board Specifications](#org15c2985)
-2.  [Specifications](#org52cefa6)
-    1.  [Description](#org8af4ba7)
-    2.  [Interfaces](#orgc3bad85)
-        1.  [Power Board](#orgc65079b)
-        2.  [Module](#orgefba204)
-        3.  [Fiber Optic](#orgc078893)
-        4.  [Low Voltage](#org2e974fe)
-    3.  [Signal Connectivity](#org9700756)
-        1.  [I2C](#orgf52768c)
-        2.  [SCA IO](#org593c611)
-        3.  [Uplink E-links](#org8c827ac)
-        4.  [Downlink E-links](#orgf6fc873)
-        5.  [Clocking](#org6f2d36c)
-        6.  [VTRX](#org2c904df)
-    4.  [Monitoring](#org69d34e2)
-    5.  [Low Voltage Distribution](#org72025cc)
-    6.  [Bias Voltage Distribution](#orgd211ed3)
-    7.  [Mechanics](#orgd1c393c)
-        1.  [Outer Dimensions](#org70cb513)
-    8.  [Component List](#org0edde08)
+1.  [Readout Board Specifications](#org5170969)
+2.  [Specifications](#org54e2a0a)
+    1.  [Description](#org03f666c)
+    2.  [Interfaces](#orgf58b88d)
+        1.  [Power Board](#orgf651952)
+        2.  [Module](#org34c2dca)
+        3.  [Fiber Optic](#orge69b6bd)
+        4.  [Low Voltage](#org5eeac8e)
+    3.  [Signal Connectivity](#org69dde14)
+        1.  [I2C](#org1016142)
+        2.  [SCA IO](#orgddac691)
+        3.  [Uplink E-links](#orgf9b433d)
+        4.  [Downlink E-links](#org466a6aa)
+        5.  [Clocking](#org3ff141f)
+        6.  [VTRX](#org774a30c)
+    4.  [Monitoring](#orgabe5a1f)
+    5.  [Low Voltage Distribution](#org09c4556)
+    6.  [Bias Voltage Distribution](#orgda1cb4b)
+    7.  [Mechanics](#org0be83a1)
+        1.  [**Spec:** Outer Dimensions <span class="underline">UNKNOWN</span>](#org5f6e985)
+        2.  [**Spec:** Screw Holes & Sizes <span class="underline">UNKNOWN</span>](#org2dd7a5e)
+    8.  [Component List](#org735ea66)
 
 
 # Specifications
@@ -72,7 +73,11 @@ The interface to the power board will consist of:
 
 ### Module
 
-1.  Signal Interface
+1.  Mechanical Interface
+
+    -   **Spec:** the module shall be aligned to the readout board using an <span class="underline">UNKNOWN</span> keying mechanism
+
+2.  Signal Interface
 
     The signal interface to the module will consist of:
     
@@ -80,7 +85,7 @@ The interface to the power board will consist of:
     -   **Spec:** The pinout of the module connectors is <span class="underline">UNKNOWN</span>.
     -   **Spec:** The placement of these connectors is <span class="underline">UNKNOWN</span>.
 
-2.  BV Interface
+3.  BV Interface
 
     The signal interface to the module will consist of:
     
@@ -242,10 +247,13 @@ The readout board will monitor the following analog channels:
 </tbody>
 </table>
 
--   **Spec:** Bias voltage monitoring will be through a resistive voltage divider
+-   **Spec:** Bias voltage monitoring will be through a resistive voltage divider:
     -   It is formed of two 50Mohm resistors (HVC1206T5005JET) and one 82k resistor (RR0510P-823-D) with accuracy of 0.5% for each resistor.
     -   The divider 82/100000=0.00082, providing a nominal monitoring range of 0-1219 volts.
     -   The bias voltage will be monitored by the GBT-SCA.
+
+-   **Spec:** VTRX 2.5V will be monitored through a resistive voltage divider:
+-   **Spec:** GBTX 1.5V analog / digital will be monitored through a resistive voltage divider:
 
 
 ## Low Voltage Distribution
@@ -269,9 +277,10 @@ The readout board will monitor the following analog channels:
 ## Mechanics
 
 
-### Outer Dimensions
+### **Spec:** Outer Dimensions <span class="underline">UNKNOWN</span>
 
-1.  Connector Placements
+
+### **Spec:** Screw Holes & Sizes <span class="underline">UNKNOWN</span>
 
 
 ## Component List
