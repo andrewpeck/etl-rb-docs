@@ -25,7 +25,7 @@ Modification Date: {{{time(%Y-%m-%d %H:%M)}}}
 Status: This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications
  - Specifications are *{{{COMPLETENESS}}}% complete*.
 
-A pdf version of this document can be found [[./rb-specs.pdf][here]]. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [[file:./rb-specs.org][here]].
+A pdf version of this document can be found [[./rb-specs.pdf][here]]. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [[https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/rb-specs.org][here]].
 
 #+TOC: headlines 3
 

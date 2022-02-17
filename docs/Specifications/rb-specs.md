@@ -4,39 +4,39 @@
 
 Authors: Andrew Peck, Daniel Spitzbart
 
-Modification Date: 2022-02-17 18:16
+Modification Date: 2022-02-17 18:23
 
 Status: This document is missing 34 pieces of information concerning  38 specifications
 
 -   Specifications are **10.5% complete**.
 
-A pdf version of this document can be found [here](./rb-specs.pdf). Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [here](./rb-specs.md).
+A pdf version of this document can be found [here](./rb-specs.pdf). Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [here](https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/rb-specs.org).
 
 
 # Table of Contents
 
-1.  [Readout Board Specifications](#org6432128)
-2.  [Specifications](#org06fbd12)
-    1.  [Description](#org57dc913)
-    2.  [Interfaces](#orga866183)
-        1.  [Power Board](#orgfd7e07f)
-        2.  [Module](#org97e2b25)
-        3.  [Fiber Optic](#org3a5e1cc)
-        4.  [Low Voltage](#org00d73f5)
-    3.  [Signal Connectivity](#org1f8a6b6)
-        1.  [I2C](#orgb8b2148)
-        2.  [SCA IO](#org1e16e10)
-        3.  [Uplink E-links](#org66c9168)
-        4.  [Downlink E-links](#org4935a14)
-        5.  [Clocking](#org6388321)
-        6.  [VTRX](#org2b3c630)
-    4.  [Monitoring](#org116c885)
-    5.  [Low Voltage Distribution](#orgc178e21)
-    6.  [Bias Voltage Distribution](#org8178727)
-    7.  [Mechanics](#org8cb2cbb)
-        1.  [**Spec:** Outer Dimensions <span class="underline">UNKNOWN</span>](#org6bb5783)
-        2.  [**Spec:** Screw Holes & Sizes <span class="underline">UNKNOWN</span>](#org4cdde1e)
-    8.  [Component List](#org6c42c4e)
+1.  [Readout Board Specifications](#org20b997e)
+2.  [Specifications](#org7c42e8f)
+    1.  [Description](#org9eb9bdc)
+    2.  [Interfaces](#org1b14908)
+        1.  [Power Board](#org9b5ca1e)
+        2.  [Module](#org4e12e5b)
+        3.  [Fiber Optic](#org549aaff)
+        4.  [Low Voltage](#org5349d58)
+    3.  [Signal Connectivity](#org2643dfc)
+        1.  [I2C](#orge5af250)
+        2.  [SCA IO](#orgd79eb4e)
+        3.  [Uplink E-links](#org08d95bc)
+        4.  [Downlink E-links](#org3eb3275)
+        5.  [Clocking](#org7c77416)
+        6.  [VTRX](#org422843b)
+    4.  [Monitoring](#orgc29852d)
+    5.  [Low Voltage Distribution](#org7a72d9c)
+    6.  [Bias Voltage Distribution](#org15213ea)
+    7.  [Mechanics](#org5745ae3)
+        1.  [**Spec:** Outer Dimensions <span class="underline">UNKNOWN</span>](#org848bbc0)
+        2.  [**Spec:** Screw Holes & Sizes <span class="underline">UNKNOWN</span>](#org54decbb)
+    8.  [Component List](#orgf370944)
 
 
 # Specifications
