@@ -4,7 +4,7 @@
 
 Authors: Andrew Peck, Daniel Spitzbart
 
-Modification Date: 2022-02-17 18:11
+Modification Date: 2022-02-17 18:16
 
 Status: This document is missing 34 pieces of information concerning  38 specifications
 
@@ -15,28 +15,28 @@ A pdf version of this document can be found [here](./rb-specs.pdf). Please check
 
 # Table of Contents
 
-1.  [Readout Board Specifications](#org5170969)
-2.  [Specifications](#org54e2a0a)
-    1.  [Description](#org03f666c)
-    2.  [Interfaces](#orgf58b88d)
-        1.  [Power Board](#orgf651952)
-        2.  [Module](#org34c2dca)
-        3.  [Fiber Optic](#orge69b6bd)
-        4.  [Low Voltage](#org5eeac8e)
-    3.  [Signal Connectivity](#org69dde14)
-        1.  [I2C](#org1016142)
-        2.  [SCA IO](#orgddac691)
-        3.  [Uplink E-links](#orgf9b433d)
-        4.  [Downlink E-links](#org466a6aa)
-        5.  [Clocking](#org3ff141f)
-        6.  [VTRX](#org774a30c)
-    4.  [Monitoring](#orgabe5a1f)
-    5.  [Low Voltage Distribution](#org09c4556)
-    6.  [Bias Voltage Distribution](#orgda1cb4b)
-    7.  [Mechanics](#org0be83a1)
-        1.  [**Spec:** Outer Dimensions <span class="underline">UNKNOWN</span>](#org5f6e985)
-        2.  [**Spec:** Screw Holes & Sizes <span class="underline">UNKNOWN</span>](#org2dd7a5e)
-    8.  [Component List](#org735ea66)
+1.  [Readout Board Specifications](#org6432128)
+2.  [Specifications](#org06fbd12)
+    1.  [Description](#org57dc913)
+    2.  [Interfaces](#orga866183)
+        1.  [Power Board](#orgfd7e07f)
+        2.  [Module](#org97e2b25)
+        3.  [Fiber Optic](#org3a5e1cc)
+        4.  [Low Voltage](#org00d73f5)
+    3.  [Signal Connectivity](#org1f8a6b6)
+        1.  [I2C](#orgb8b2148)
+        2.  [SCA IO](#org1e16e10)
+        3.  [Uplink E-links](#org66c9168)
+        4.  [Downlink E-links](#org4935a14)
+        5.  [Clocking](#org6388321)
+        6.  [VTRX](#org2b3c630)
+    4.  [Monitoring](#org116c885)
+    5.  [Low Voltage Distribution](#orgc178e21)
+    6.  [Bias Voltage Distribution](#org8178727)
+    7.  [Mechanics](#org8cb2cbb)
+        1.  [**Spec:** Outer Dimensions <span class="underline">UNKNOWN</span>](#org6bb5783)
+        2.  [**Spec:** Screw Holes & Sizes <span class="underline">UNKNOWN</span>](#org4cdde1e)
+    8.  [Component List](#org6c42c4e)
 
 
 # Specifications
