@@ -4,150 +4,323 @@
 
 Authors: Andrew Peck, Daniel Spitzbart
 
-Modification Date: 2022-02-17 18:23
+Modification Date: 2022-02-18 15:56
 
-Status: This document is missing 34 pieces of information concerning  38 specifications
+Status: This document is missing 60 pieces of information concerning  58 specifications
 
--   Specifications are **10.5% complete**.
+-   Specifications are **-3.4% complete**.
 
 A pdf version of this document can be found [here](./rb-specs.pdf). Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [here](https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/rb-specs.org).
+
+The latest RB schematic can be found here <https://gitlab.cern.ch/cms-etl-electronics/readout-board-pcb/uploads/183954f3a47f967752902acf8ae9c3d3/ETL_RB_V1.6.PDF>
 
 
 # Table of Contents
 
-1.  [Readout Board Specifications](#org20b997e)
-2.  [Specifications](#org7c42e8f)
-    1.  [Description](#org9eb9bdc)
-    2.  [Interfaces](#org1b14908)
-        1.  [Power Board](#org9b5ca1e)
-        2.  [Module](#org4e12e5b)
-        3.  [Fiber Optic](#org549aaff)
-        4.  [Low Voltage](#org5349d58)
-    3.  [Signal Connectivity](#org2643dfc)
-        1.  [I2C](#orge5af250)
-        2.  [SCA IO](#orgd79eb4e)
-        3.  [Uplink E-links](#org08d95bc)
-        4.  [Downlink E-links](#org3eb3275)
-        5.  [Clocking](#org7c77416)
-        6.  [VTRX](#org422843b)
-    4.  [Monitoring](#orgc29852d)
-    5.  [Low Voltage Distribution](#org7a72d9c)
-    6.  [Bias Voltage Distribution](#org15213ea)
-    7.  [Mechanics](#org5745ae3)
-        1.  [**Spec:** Outer Dimensions <span class="underline">UNKNOWN</span>](#org848bbc0)
-        2.  [**Spec:** Screw Holes & Sizes <span class="underline">UNKNOWN</span>](#org54decbb)
-    8.  [Component List](#orgf370944)
+1.  [Readout Board Specifications](#org3009478)
+    1.  [Description](#orgfb33da1)
+    2.  [Drawings](#orgaf2aa2e)
+    3.  [Interfaces](#orge8bb56c)
+        1.  [Power Board Interface](#org1ce8169)
+        2.  [Module Interface](#org8f7255a)
+        3.  [Fiber Optic Interface](#org08127ee)
+        4.  [Low Voltage Interface](#org456999c)
+        5.  [Programming Interface](#org6b740fa)
+    4.  [Signal Connectivity](#orga2a0026)
+        1.  [I2C](#orgcf9c74b)
+        2.  [IO](#orgd9dd316)
+        3.  [Uplinks](#org4aa71d5)
+        4.  [Downlinks](#orga63c257)
+        5.  [Clocking](#orgc5675e4)
+        6.  [VTRX](#org926aab0)
+    5.  [Monitoring](#org4183660)
+        1.  [Voltage Monitoring](#orgb9c3b0d)
+    6.  [Low Voltage Distribution](#org7a35e8d)
+    7.  [Bias Voltage Distribution](#org078fbd1)
+    8.  [Mechanics](#org8ce4d5b)
+        1.  [Outer Dimensions](#org1001747)
+        2.  [Screw Holes & Sizes](#orge6f5547)
+        3.  [Thickness](#orge59adbe)
+    9.  [Component List](#orgee6d84b)
 
 
-# Specifications
-
+<a id="orgfb33da1"></a>
 
 ## Description
 
 The readout board will be designed in 3 different flavors, called the RB-3, RB-6, and RB-7, where the suffix number represents the number of &ldquo;full-modules&rdquo; that the readout board services.
 
+-   An RB-3 will interface with 3 modules, meaning 12 ETROCs and 12 sensors.
+-   An RB-6 will interface with 6 modules, meaning 24 ETROCs and 24 sensors.
+-   An RB-7 will interface with 7 modules, meaning 28 ETROCs and 28 sensors.
+
 The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number of linPOL12 regulators, and associated connectors / passive components required to interface with the external systems.
 
--   **Spec:** Each RB will have 1 GBT-SCA
--   **Spec:** Each RB will have 2 lpGBTs
--   **Spec:** Each RB will have 1 VTRX+
--   **Spec:** Each RB will have 6 linPOL12s
+-   Each RB will have 1 GBT-SCA
+-   Each RB will have 2 lpGBTs
+-   Each RB will have 1 VTRX+
+-   Each RB will have 6 linPOL12s
     -   2 for VTRX+ RX
     -   2 for VTRX+ TX
     -   1 for GBT-SCA analog power
     -   1 for GBT-SCA digital power
 
 
+<a id="orgaf2aa2e"></a>
+
+## Drawings
+
+
+<a id="orge8bb56c"></a>
+
 ## Interfaces
 
 
-### Power Board
+<a id="org1ce8169"></a>
+
+### Power Board Interface
 
 The interface to the power board will consist of:
 
--   **Spec:** The power board interface will use connector part number <span class="underline">UNKNOWN</span>.
--   **Spec:** The pinout of these connectors is <span class="underline">UNKNOWN</span>.
--   **Spec:** The placement of these connectors is <span class="underline">UNKNOWN</span>.
--   **Spec:** The quantity of these connectors is <span class="underline">UNKNOWN</span>.
+-   The power board interface will use connector part number <span class="underline">UNKNOWN</span>.
+-   The pinout of these connectors is <span class="underline">UNKNOWN</span>.
+-   The placement of these connectors is <span class="underline">UNKNOWN</span>.
+-   The quantity of these connectors is <span class="underline">UNKNOWN</span>.
 
 
-### Module
+<a id="org8f7255a"></a>
+
+### Module Interface
 
 1.  Mechanical Interface
 
-    -   **Spec:** the module shall be aligned to the readout board using an <span class="underline">UNKNOWN</span> keying mechanism
+    -   the module shall be aligned to the readout board using an <span class="underline">UNKNOWN</span> keying mechanism
 
 2.  Signal Interface
 
     The signal interface to the module will consist of:
     
-    -   **Spec:** The module will use connector part number <span class="underline">UNKNOWN</span>.
-    -   **Spec:** The pinout of the module connectors is <span class="underline">UNKNOWN</span>.
-    -   **Spec:** The placement of these connectors is <span class="underline">UNKNOWN</span>.
+    -   The module will use connector part number <span class="underline">UNKNOWN</span>.
+    -   The pinout of the module connectors is <span class="underline">UNKNOWN</span>.
+    -   The placement of these connectors is <span class="underline">UNKNOWN</span>.
 
 3.  BV Interface
 
     The signal interface to the module will consist of:
     
-    -   **Spec:** The BV to module interface will use connector part number <span class="underline">UNKNOWN</span>.
-    -   **Spec:** The pinout of these connectors is <span class="underline">UNKNOWN</span>.
-    -   **Spec:** The placement of these connectors is <span class="underline">UNKNOWN</span>.
+    -   The BV to module interface will use connector part number <span class="underline">UNKNOWN</span>.
+    -   The pinout of these connectors is <span class="underline">UNKNOWN</span>.
+    -   The placement of these connectors is <span class="underline">UNKNOWN</span>.
 
 
-### Fiber Optic
+<a id="org08127ee"></a>
+
+### Fiber Optic Interface
 
 The fiber optic interface to CMS is through a VTRX+. The readout board will host both the VTRX+, as well as the MT Ferrule that is required to connect between the VTRX+ and a &ldquo;naked fanout&rdquo;.
 
--   **Spec:** The size of the cutout for the MT ferrule is <span class="underline">UNKNOWN</span>.
+-   The size of the cutout for the MT ferrule is <span class="underline">UNKNOWN</span>.
 -   The location of the cutout for the MT ferrule is:
-    -   **Spec:** RB-3: <span class="underline">UNKNOWN</span>.
-    -   **Spec:** RB-6: <span class="underline">UNKNOWN</span>.
-    -   **Spec:** RB-7: <span class="underline">UNKNOWN</span>.
+    -   RB-3: <span class="underline">UNKNOWN</span>.
+    -   RB-6: <span class="underline">UNKNOWN</span>.
+    -   RB-7: <span class="underline">UNKNOWN</span>.
 
 
-### Low Voltage
+<a id="org456999c"></a>
+
+### Low Voltage Interface
 
 The readout board will connect to the low voltage supply to receive ~8V power.
 
--   **Spec:** The part number for the LV connector is <span class="underline">UNKNOWN</span>.
--   **Spec:** The pinout for the LV connector is <span class="underline">UNKNOWN</span>.
--   **Spec:** The placement for the LV connector is <span class="underline">UNKNOWN</span>.
+-   The part number for the LV connector is <span class="underline">UNKNOWN</span>.
+-   The pinout for the LV connector is <span class="underline">UNKNOWN</span>.
+-   The placement for the LV connector is <span class="underline">UNKNOWN</span>.
 
+
+<a id="org6b740fa"></a>
+
+### Programming Interface
+
+-   The readout board will provide a programming interface to allow fusing/configuration of the lpGBT through I2C.
+-   The part number for the programming connector is <span class="underline">UNKNOWN</span>.
+-   The pinout for the programming connector is <span class="underline">UNKNOWN</span>.
+-   The placement for the programming connector is <span class="underline">UNKNOWN</span>.
+
+
+<a id="orga2a0026"></a>
 
 ## Signal Connectivity
 
 
+<a id="orgcf9c74b"></a>
+
 ### I2C
 
--   **Spec:** The GBT-SCA will provide one I2C connection for each module.
--   **Spec:** All ETROCs in a module will share an I2C master.
--   **Spec:** The readout board will provide strong I2C pull-ups.
+-   The GBT-SCA will provide one I2C connection for each module.
+-   All ETROCs in a module will share an I2C master.
+-   The readout board will provide strong I2C pull-ups.
     -   It is assumed that the modules will not, and have only weak pull-ups.
 
 
-### SCA IO
+<a id="orgd9dd316"></a>
+
+### IO
+
+-   A GBT-SCA provides 32 tri-stateable 1.5V GPIO
+-   An LPGBT provides 16 tri-stateable 1.2V GPIO
+-   These IO will be allocated as:
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">RB-3</th>
+    <th scope="col" class="org-right">RB-6</th>
+    <th scope="col" class="org-right">RB-7</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">GBT-SCA RESETB</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">VTRX LD_RESETB</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">VTRX LD_DIS</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">Module Reset</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">3</td>
+    <td class="org-right">6</td>
+    <td class="org-right">7</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">PB PGOOD</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right"><span class="underline">UNKNOWN</span></td>
+    <td class="org-right"><span class="underline">UNKNOWN</span></td>
+    <td class="org-right"><span class="underline">UNKNOWN</span></td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">PB EN</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right"><span class="underline">UNKNOWN</span></td>
+    <td class="org-right"><span class="underline">UNKNOWN</span></td>
+    <td class="org-right"><span class="underline">UNKNOWN</span></td>
+    </tr>
+    </tbody>
+    </table>
 
 
-### Uplink E-links
+<a id="org4aa71d5"></a>
+
+### Uplinks
+
+-   From every module, the readout board will receive:
+    -   RB-3: <span class="underline">UNKNOWN</span> uplinks
+    -   RB-6: <span class="underline">UNKNOWN</span> uplinks
+    -   RB-7: <span class="underline">UNKNOWN</span> uplinks
+-   These uplinks will operate at up to:
+    -   RB-3: <span class="underline">UNKNOWN</span> Mbps
+    -   RB-6: <span class="underline">UNKNOWN</span> Mbps
+    -   RB-7: <span class="underline">UNKNOWN</span> Mbps
+-   These uplinks will **not** be phase length matched.
 
 
-### Downlink E-links
+<a id="orga63c257"></a>
 
+### Downlinks
+
+-   The readout board will deliver to each module two downlinks that provide a &ldquo;fast command&rdquo; interface to the ETROC.
+-   These fast-command downlinks will run at <span class="underline">UNKNOWN</span> Mbps.
+-   The fast command downlinks will be multi-dropped on the module, with each downlink serving 2 ETROCs.
+    -   6 downlinks for the RB-3, 12 downlinks for the RB-6, and 14 downlinks for the RB-7.
+-   These downlinks will **not** be phase length matched *between* modules, but **will** be phase length matched *within* modules and to their respective clocks.
+
+
+<a id="orgc5675e4"></a>
 
 ### Clocking
 
+-   The readout board will be responsible for delivering a 40 MHz point-to-point clock to each of the ETROCs it connects to.
+    -   12 clocks for the RB-3, 24 clocks for the RB-6, and 28 clocks for the RB-7.
+-   These clocks will **not** be phase length matched *between* modules, but **will** be phase length matched *within* modules.
+-   The clock will be distributed only from the **master** lpGBT; the slave lpGBT clock outputs will not be used due to radiation intolerance.
+
+
+<a id="org926aab0"></a>
 
 ### VTRX
 
 
+<a id="org4183660"></a>
+
 ## Monitoring
 
+A GBT-SCA ASIC provides 31 analog inputs with 12-bit resolution, and 4 analog outputs with 8-bit resolution, with a range of 0 to 1V.
+
+An lpGBT provides 8 analog inputs with 10-bit resolution and 1 analog output with 12-bit resolution.
+
 The readout board will monitor the following analog channels:
+
+
+<a id="orgb9c3b0d"></a>
+
+### Voltage Monitoring
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
 <col  class="org-left" />
 
 <col  class="org-right" />
@@ -159,15 +332,25 @@ The readout board will monitor the following analog channels:
 <thead>
 <tr>
 <th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-right">RB-3</th>
-<th scope="col" class="org-right">RB-6</th>
-<th scope="col" class="org-right">RB-7</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Monitored By</th>
+<th scope="col" class="org-left">Divider</th>
+<th scope="col" class="org-left">LSB</th>
+<th scope="col" class="org-left">Range</th>
+<th scope="col" class="org-right">Qty. RB-3</th>
+<th scope="col" class="org-right">Qty. RB-6</th>
+<th scope="col" class="org-right">Qty. RB-7</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td class="org-left">Sensor Bias Voltage</td>
+<td class="org-left">Sensor BV</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">GBT-SCA</td>
+<td class="org-left">82/100082</td>
+<td class="org-left">2.980e-01 V</td>
+<td class="org-left">1220.3 V</td>
 <td class="org-right"><span class="underline">UNKNOWN</span></td>
 <td class="org-right"><span class="underline">UNKNOWN</span></td>
 <td class="org-right"><span class="underline">UNKNOWN</span></td>
@@ -175,15 +358,51 @@ The readout board will monitor the following analog channels:
 
 
 <tr>
-<td class="org-left">ETROC Low Voltage</td>
+<td class="org-left">ETROC +1.2V</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">GBT-SCA</td>
+<td class="org-left">2.0/4.2</td>
+<td class="org-left">5.128e-04 V</td>
+<td class="org-left">2.1 V</td>
 <td class="org-right"><span class="underline">UNKNOWN</span></td>
 <td class="org-right"><span class="underline">UNKNOWN</span></td>
 <td class="org-right"><span class="underline">UNKNOWN</span></td>
+</tr>
+
+
+<tr>
+<td class="org-left">PB +1.2V</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">GBT-SCA</td>
+<td class="org-left">2.0/4.2</td>
+<td class="org-left">5.128e-04 V</td>
+<td class="org-left">2.1 V</td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
+</tr>
+
+
+<tr>
+<td class="org-left">RB LV</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">GBT-SCA</td>
+<td class="org-left">1/11</td>
+<td class="org-left">2.686e-03 V</td>
+<td class="org-left">11.0 V</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
 </tr>
 
 
 <tr>
 <td class="org-left">VTRX +2.5V RX</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">lpGBT</td>
+<td class="org-left">1.5/4.5</td>
+<td class="org-left">2.933e-03 V</td>
+<td class="org-left">3.0 V</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
@@ -192,6 +411,11 @@ The readout board will monitor the following analog channels:
 
 <tr>
 <td class="org-left">VTRX +2.5V TX</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">lpGBT</td>
+<td class="org-left">1.5/4.5</td>
+<td class="org-left">2.933e-03 V</td>
+<td class="org-left">3.0 V</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
@@ -200,6 +424,11 @@ The readout board will monitor the following analog channels:
 
 <tr>
 <td class="org-left">GBTX +1.5VD</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">lpGBT</td>
+<td class="org-left">2.0/3.5</td>
+<td class="org-left">1.711e-03 V</td>
+<td class="org-left">1.8 V</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
@@ -208,6 +437,11 @@ The readout board will monitor the following analog channels:
 
 <tr>
 <td class="org-left">GBTX +1.5VA</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">lpGBT</td>
+<td class="org-left">2.0/3.5</td>
+<td class="org-left">1.711e-03 V</td>
+<td class="org-left">1.8 V</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
@@ -215,73 +449,126 @@ The readout board will monitor the following analog channels:
 
 
 <tr>
-<td class="org-left">RB Low Voltage</td>
+<td class="org-left">VTRX Temp</td>
+<td class="org-left">Temperature</td>
+<td class="org-left">lpGBT</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
+</tr>
+
+
+<tr>
+<td class="org-left">RB Temp</td>
+<td class="org-left">Temperature</td>
+<td class="org-left">GBT-SCA</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+
+<tr>
+<td class="org-left">PB Temp</td>
+<td class="org-left">Temperature</td>
+<td class="org-left"><span class="underline">UNKNOWN</span></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
+</tr>
+
+
+<tr>
+<td class="org-left">Module Temp</td>
+<td class="org-left">Temperature</td>
+<td class="org-left"><span class="underline">UNKNOWN</span></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
+<td class="org-right"><span class="underline">UNKNOWN</span></td>
 </tr>
 
 
 <tr>
 <td class="org-left">VTRX RSSI</td>
+<td class="org-left">Photocurrent</td>
+<td class="org-left">lpGBT</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
 <td class="org-right">1</td>
-</tr>
-
-
-<tr>
-<td class="org-left">VTRX Temperature</td>
-<td class="org-right">1</td>
-<td class="org-right">1</td>
-<td class="org-right">1</td>
-</tr>
-
-
-<tr>
-<td class="org-left">Temperature Sensors</td>
-<td class="org-right"><span class="underline">UNKNOWN</span></td>
-<td class="org-right"><span class="underline">UNKNOWN</span></td>
-<td class="org-right"><span class="underline">UNKNOWN</span></td>
 </tr>
 </tbody>
 </table>
 
--   **Spec:** Bias voltage monitoring will be through a resistive voltage divider:
-    -   It is formed of two 50Mohm resistors (HVC1206T5005JET) and one 82k resistor (RR0510P-823-D) with accuracy of 0.5% for each resistor.
-    -   The divider 82/100000=0.00082, providing a nominal monitoring range of 0-1219 volts.
-    -   The bias voltage will be monitored by the GBT-SCA.
+-   All voltage dividers will be formed of 0.5% tolerance resistors.
+-   All voltage dividers will be decoupled by 0.1 uF capacitors.
+-   The ETROC voltage monitors assume that a 1.2k resistor is in series with the `1V2_MON` signal from the module.
 
--   **Spec:** VTRX 2.5V will be monitored through a resistive voltage divider:
--   **Spec:** GBTX 1.5V analog / digital will be monitored through a resistive voltage divider:
 
+<a id="org7a35e8d"></a>
 
 ## Low Voltage Distribution
 
--   **Spec:** The readout board will provide four 47 uF capacitors connected to each 1.2V ETROC supply.
+-   The readout board will provide four 47 uF capacitors connected to each 1.2V ETROC supply.
     -   There will be no additional filtering.
--   **Spec:** Analog and digital power for the ETROC will not be distinguished.
--   **Spec:** The low voltage will be ganged such that <span class="underline">UNKNOWN</span> ETROCs share a common power supply.
+-   Analog and digital power for the ETROC will not be distinguished.
+-   The low voltage will be ganged such that <span class="underline">UNKNOWN</span> ETROCs share a common power supply.
 
+
+<a id="org078fbd1"></a>
 
 ## Bias Voltage Distribution
 
--   **Spec:** Bias voltage will be a maximum of <span class="underline">UNKNOWN</span> volts.
+-   Bias voltage will be a maximum of <span class="underline">UNKNOWN</span> volts.
 -   The bias voltage granularity will be:
-    -   **Spec:** <span class="underline">UNKNOWN</span> channels for an RB-3
-    -   **Spec:** <span class="underline">UNKNOWN</span> channels for an RB-6
-    -   **Spec:** <span class="underline">UNKNOWN</span> channels for an RB-7
--   **Spec:** The readout board will provide a filter for each bias voltage channel consisting of a 200 ohm resistor and 1500 pF capacitor.
+    -   <span class="underline">UNKNOWN</span> channels for an RB-3
+    -   <span class="underline">UNKNOWN</span> channels for an RB-6
+    -   <span class="underline">UNKNOWN</span> channels for an RB-7
+-   The readout board will provide a filter for each bias voltage channel consisting of a 200 ohm resistor and 1500 pF capacitor, which will be rated for at least 1000V.
 
+
+<a id="org8ce4d5b"></a>
 
 ## Mechanics
 
 
-### **Spec:** Outer Dimensions <span class="underline">UNKNOWN</span>
+<a id="org1001747"></a>
+
+### Outer Dimensions
+
+-   The outer dimension of the readout board will follow an <span class="underline">UNKNOWN</span> shape
 
 
-### **Spec:** Screw Holes & Sizes <span class="underline">UNKNOWN</span>
+<a id="orge6f5547"></a>
 
+### Screw Holes & Sizes
+
+-   The readout board will have <span class="underline">UNKNOWN</span> mounting holes of size <span class="underline">UNKNOWN</span> in the following locations:
+    1.  <span class="underline">UNKNOWN</span>
+
+
+<a id="orge59adbe"></a>
+
+### Thickness
+
+-   The readout board will be 1.0mm thick with a manufacturing specification of &plusmn; 10%.
+
+
+<a id="orgee6d84b"></a>
 
 ## Component List
 
