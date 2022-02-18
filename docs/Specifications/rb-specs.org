@@ -18,16 +18,16 @@
 
 * Readout Board Specifications
 
-Authors: {{{author}}}
+- Authors: {{{author}}}
 
-Modification Date: {{{time(%Y-%m-%d %H:%M)}}}
+- Modification Date: {{{time(%Y-%m-%d %H:%M)}}}
 
-Status: This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications
-- Specifications are *{{{COMPLETENESS}}}% complete*.
+- Status: This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications
+  - Specifications are *{{{COMPLETENESS}}}% complete*.
 
-A pdf version of this document can be found [[./rb-specs.pdf][here]]. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [[https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/rb-specs.org][here]].
+- A pdf version of this document can be found [[./rb-specs.pdf][here]]. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [[https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/rb-specs.org][here]].
 
-The latest RB schematic can be found here https://gitlab.cern.ch/cms-etl-electronics/readout-board-pcb/uploads/183954f3a47f967752902acf8ae9c3d3/ETL_RB_V1.6.PDF
+- The latest RB schematic can be found here https://gitlab.cern.ch/cms-etl-electronics/readout-board-pcb/uploads/183954f3a47f967752902acf8ae9c3d3/ETL_RB_V1.6.PDF
 
 #+TOC: headlines 3
 
