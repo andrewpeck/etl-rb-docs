@@ -1,4 +1,4 @@
-% Created 2022-02-18 Fri 16:01
+% Created 2022-02-18 Fri 16:03
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
              \usepackage[utf8]{inputenc}
@@ -41,11 +41,11 @@
 \maketitle
 
 \section{Readout Board Specifications}
-\label{sec:orgf41ee40}
+\label{sec:orgef1a09f}
 
 Authors: Andrew Peck, Daniel Spitzbart
 
-Modification Date: 2022-02-18 16:01
+Modification Date: 2022-02-18 16:03
 
 Status: This document is missing 60 pieces of information concerning  63 specifications
 \begin{itemize}
@@ -60,7 +60,7 @@ The latest RB schematic can be found here \url{https://gitlab.cern.ch/cms-etl-el
 \tableofcontents
 
 \subsection{Description}
-\label{sec:org34cfd03}
+\label{sec:orge9e066a}
 
 The readout board will be designed in 3 different flavors, called the RB-3, RB-6, and RB-7, where the suffix number represents the number of ``full-modules'' that the readout board services.
 
@@ -85,11 +85,11 @@ The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number o
 \end{itemize}
 \end{itemize}
 \subsection{Drawings}
-\label{sec:org830dfa2}
+\label{sec:org892480f}
 \subsection{Interfaces}
-\label{sec:org774e028}
+\label{sec:org63b194c}
 \subsubsection{Power Board Interface}
-\label{sec:orgd5a2ca8}
+\label{sec:orgc988c1b}
 The interface to the power board will consist of:
 \begin{itemize}
 \item The power board interface will use connector part number \uline{UNKNOWN}.
@@ -98,15 +98,15 @@ The interface to the power board will consist of:
 \item The quantity of these connectors is \uline{UNKNOWN}.
 \end{itemize}
 \subsubsection{Module Interface}
-\label{sec:org449861a}
+\label{sec:org0e87e1d}
 \begin{enumerate}
 \item Mechanical Interface
-\label{sec:org9261598}
+\label{sec:orgd8c2bef}
 \begin{itemize}
 \item the module shall be aligned to the readout board using an \uline{UNKNOWN} keying mechanism
 \end{itemize}
 \item Signal Interface
-\label{sec:orgf0fff5e}
+\label{sec:org5b9f0ea}
 The signal interface to the module will consist of:
 \begin{itemize}
 \item The module will use connector part number \uline{UNKNOWN}.
@@ -114,7 +114,7 @@ The signal interface to the module will consist of:
 \item The placement of these connectors is \uline{UNKNOWN}.
 \end{itemize}
 \item BV Interface
-\label{sec:org8ccbdb3}
+\label{sec:org1ff6743}
 The signal interface to the module will consist of:
 \begin{itemize}
 \item The BV to module interface will use connector part number \uline{UNKNOWN}.
@@ -123,7 +123,7 @@ The signal interface to the module will consist of:
 \end{itemize}
 \end{enumerate}
 \subsubsection{Fiber Optic Interface}
-\label{sec:orgbbc46ab}
+\label{sec:orgba55386}
 The fiber optic interface to CMS is through a VTRX+. The readout board will host both the VTRX+, as well as the MT Ferrule that is required to connect between the VTRX+ and a ``naked fanout''.
 \begin{itemize}
 \item The size of the cutout for the MT ferrule is \uline{UNKNOWN}.
@@ -135,7 +135,7 @@ The fiber optic interface to CMS is through a VTRX+. The readout board will host
 \end{itemize}
 \end{itemize}
 \subsubsection{Low Voltage Interface}
-\label{sec:orga0b7442}
+\label{sec:org5d9b69c}
 The readout board will connect to the low voltage supply to receive \textasciitilde{}8V power.
 \begin{itemize}
 \item The part number for the LV connector is \uline{UNKNOWN}.
@@ -143,7 +143,7 @@ The readout board will connect to the low voltage supply to receive \textasciiti
 \item The placement for the LV connector is \uline{UNKNOWN}.
 \end{itemize}
 \subsubsection{Programming Interface}
-\label{sec:org9201763}
+\label{sec:org7d06260}
 \begin{itemize}
 \item The readout board will provide a programming interface to allow fusing/configuration of the lpGBT through I2C.
 \item The part number for the programming connector is \uline{UNKNOWN}.
@@ -151,9 +151,9 @@ The readout board will connect to the low voltage supply to receive \textasciiti
 \item The placement for the programming connector is \uline{UNKNOWN}.
 \end{itemize}
 \subsection{Signal Connectivity}
-\label{sec:org5f03b4e}
+\label{sec:orgf7851e2}
 \subsubsection{I2C}
-\label{sec:org7451bd6}
+\label{sec:org7c86786}
 \begin{itemize}
 \item The GBT-SCA will provide one I2C connection for each module.
 \item All ETROCs in a module will share an I2C master.
@@ -163,7 +163,7 @@ The readout board will connect to the low voltage supply to receive \textasciiti
 \end{itemize}
 \end{itemize}
 \subsubsection{IO}
-\label{sec:orgdd92749}
+\label{sec:orga85a5b8}
 \begin{itemize}
 \item A GBT-SCA provides 32 tri-stateable 1.5V GPIO
 \item An LPGBT provides 16 tri-stateable 1.2V GPIO
@@ -183,7 +183,7 @@ PB EN &  & \uline{UNKNOWN} & \uline{UNKNOWN} & \uline{UNKNOWN}\\
 \end{itemize}
 
 \subsubsection{Uplinks}
-\label{sec:org56fab00}
+\label{sec:orgea420de}
 
 Uplinks carry data from the front-end to the back-end.
 
@@ -193,14 +193,14 @@ Uplinks carry data from the front-end to the back-end.
 
 \begin{enumerate}
 \item Quantity
-\label{sec:org6060cac}
+\label{sec:org0cc713e}
 \begin{itemize}
 \item RB-3 will have \uline{UNKNOWN} uplinks
 \item RB-6 will have \uline{UNKNOWN} uplinks
 \item RB-7 will have \uline{UNKNOWN} uplinks
 \end{itemize}
 \item Data Rates
-\label{sec:orgb1a492a}
+\label{sec:org976d9a7}
 \begin{itemize}
 \item RB-3 will operate at up to \uline{UNKNOWN} Mbps
 \item RB-6 will operate at up to \uline{UNKNOWN} Mbps
@@ -208,7 +208,7 @@ Uplinks carry data from the front-end to the back-end.
 \end{itemize}
 \end{enumerate}
 \subsubsection{Downlinks}
-\label{sec:org767deb6}
+\label{sec:orgcdf1322}
 
 Downlinks carry data from the back-end to the front-end.
 
@@ -222,7 +222,7 @@ Downlinks carry data from the back-end to the front-end.
 \item These downlinks will \textbf{not} be phase length matched \emph{between} modules, but \textbf{will} be phase length matched \emph{within} modules and to their respective clocks.
 \end{itemize}
 \subsubsection{Clocking}
-\label{sec:org5f348a6}
+\label{sec:org3379f4a}
 \begin{itemize}
 \item The readout board will be responsible for delivering a 40 MHz point-to-point clock to each of the ETROCs it connects to.
 \begin{itemize}
@@ -232,9 +232,9 @@ Downlinks carry data from the back-end to the front-end.
 \item The clock will be distributed only from the \textbf{master} lpGBT; the slave lpGBT clock outputs will not be used due to radiation intolerance.
 \end{itemize}
 \subsubsection{VTRX}
-\label{sec:orga0adc1d}
+\label{sec:orgafcafc9}
 \subsection{Monitoring}
-\label{sec:org1e5bc3c}
+\label{sec:org045acec}
 
 A GBT-SCA ASIC provides 31 analog inputs with 12-bit resolution, and 4 analog outputs with 8-bit resolution, with a range of 0 to 1V.
 
@@ -243,7 +243,7 @@ An lpGBT provides 8 analog inputs with 10-bit resolution and 1 analog output wit
 The readout board will monitor the following analog channels:
 
 \subsubsection{Voltage Monitoring}
-\label{sec:orgaaeccf1}
+\label{sec:org3f534fb}
 \begin{center}
 \begin{tabular}{llllllrrr}
  & Type & Monitored By & Divider & LSB & Range & Qty. RB-3 & Qty. RB-6 & Qty. RB-7\\
@@ -271,7 +271,7 @@ VTRX RSSI & Photocurrent & lpGBT &  &  &  & 1 & 1 & 1\\
 \end{itemize}
 
 \subsection{Low Voltage Distribution}
-\label{sec:org78fba9c}
+\label{sec:org119c6a3}
 \begin{itemize}
 \item The readout board will provide four 47 uF capacitors connected to each 1.2V ETROC supply.
 \begin{itemize}
@@ -281,7 +281,7 @@ VTRX RSSI & Photocurrent & lpGBT &  &  &  & 1 & 1 & 1\\
 \item The low voltage will be ganged such that \uline{UNKNOWN} ETROCs share a common power supply.
 \end{itemize}
 \subsection{Bias Voltage Distribution}
-\label{sec:org8ea51c2}
+\label{sec:org7fb4aeb}
 \begin{itemize}
 \item Bias voltage will be a maximum of \uline{UNKNOWN} volts.
 \item The bias voltage granularity will be:
@@ -293,14 +293,14 @@ VTRX RSSI & Photocurrent & lpGBT &  &  &  & 1 & 1 & 1\\
 \item The readout board will provide a filter for each bias voltage channel consisting of a 200 ohm resistor and 1500 pF capacitor, which will be rated for at least 1000V.
 \end{itemize}
 \subsection{Mechanics}
-\label{sec:org77c3060}
+\label{sec:org60954f5}
 \subsubsection{Outer Dimensions}
-\label{sec:orgcc18ad5}
+\label{sec:org891e8bf}
 \begin{itemize}
 \item The outer dimension of the readout board will follow an \uline{UNKNOWN} shape
 \end{itemize}
 \subsubsection{Screw Holes \& Sizes}
-\label{sec:orgc333714}
+\label{sec:orgf932fc9}
 \begin{itemize}
 \item The readout board will have \uline{UNKNOWN} mounting holes of size \uline{UNKNOWN} in the following locations:
 \begin{enumerate}
@@ -308,10 +308,10 @@ VTRX RSSI & Photocurrent & lpGBT &  &  &  & 1 & 1 & 1\\
 \end{enumerate}
 \end{itemize}
 \subsubsection{Thickness}
-\label{sec:org1b44f76}
+\label{sec:org1252bbe}
 \begin{itemize}
 \item The readout board will be 1.0mm thick with a manufacturing specification of \textpm{} 10\%.
 \end{itemize}
 \subsection{Component List}
-\label{sec:orgda35c62}
+\label{sec:org9a0f39f}
 \end{document}
