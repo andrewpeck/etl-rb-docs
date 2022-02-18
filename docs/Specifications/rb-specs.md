@@ -4,7 +4,7 @@
 
 -   Authors: Andrew Peck, Daniel Spitzbart
 
--   Modification Date: 2022-02-18 16:14
+-   Modification Date: 2022-02-18 16:51
 
 -   Status: This document is missing 61 pieces of information concerning  63 specifications
     -   Specifications are **3.2% complete**.
@@ -16,44 +16,44 @@
 
 # Table of Contents
 
-1.  [Readout Board Specifications](#orgb4a7b34)
-    1.  [Description](#org279d5b7)
-    2.  [Interfaces](#org3927987)
-        1.  [Power Board Interface](#orgac8615f)
-        2.  [Module Interface](#org9ce041a)
-        3.  [Fiber Optic Interface](#org63ae1ce)
-        4.  [Low Voltage Interface](#orga80c475)
-        5.  [Programming Interface](#org2ea8263)
-    3.  [Signal Connectivity](#orgd1be75f)
-        1.  [I2C](#org964db3d)
-        2.  [IO](#orga0beb13)
-        3.  [Uplinks](#orgfc9a863)
-        4.  [Downlinks](#org389a898)
-        5.  [Clocking](#org6a8763e)
-        6.  [VTRX](#org27ba5d0)
-    4.  [Monitoring](#orgdf9abdb)
-        1.  [Voltage Monitoring](#org970e254)
-    5.  [Low Voltage Distribution](#orgd767ee4)
-    6.  [Bias Voltage Distribution](#orgffb81a9)
-    7.  [Mechanics](#org2abc166)
-        1.  [Outer Dimensions](#orgd784890)
-        2.  [Screw Holes & Sizes](#orge3793a4)
-        3.  [Thickness](#org9d51998)
-        4.  [Drawings](#org96cf82b)
-    8.  [Component List](#org0061920)
+1.  [Readout Board Specifications](#org05fbb53)
+    1.  [Description](#orgb15e9fc)
+    2.  [Interfaces](#org28febbc)
+        1.  [Power Board Interface](#org011cece)
+        2.  [Module Interface](#org8179a44)
+        3.  [Fiber Optic Interface](#orge4290c3)
+        4.  [Low Voltage Interface](#org7969624)
+        5.  [Programming Interface](#org404a233)
+    3.  [Signal Connectivity](#org56a36c4)
+        1.  [I2C](#org905c527)
+        2.  [IO](#org4d4445e)
+        3.  [Uplinks](#org633568c)
+        4.  [Downlinks](#org4bc816b)
+        5.  [Clocking](#org953974f)
+        6.  [VTRX](#orgcfd5821)
+    4.  [Monitoring](#org5f84a90)
+        1.  [Voltage Monitoring](#orgf8c634e)
+    5.  [Low Voltage Distribution](#orge38778b)
+    6.  [Bias Voltage Distribution](#org143c6a1)
+    7.  [Mechanics](#org08d9dda)
+        1.  [Outer Dimensions](#org289f396)
+        2.  [Screw Holes & Sizes](#org13e9a10)
+        3.  [Thickness](#org58a16f5)
+        4.  [Drawings](#orgf52184d)
+        5.  [Module Mechanics](#org7765ce3)
 
 
-<a id="org279d5b7"></a>
+<a id="orgb15e9fc"></a>
 
 ## Description
 
-The readout board will be designed in 3 different flavors, called the RB-3, RB-6, and RB-7, where the suffix number represents the number of &ldquo;full-modules&rdquo; that the readout board services.
+The Readout Board will be designed in 3 different flavors, called the RB-3, RB-6, and RB-7, where the suffix number represents the number of &ldquo;full-modules&rdquo; that the Readout Board services.
 
 -   An RB-3 will interface with 3 modules, meaning 12 ETROCs and 12 sensors.
 -   An RB-6 will interface with 6 modules, meaning 24 ETROCs and 24 sensors.
 -   An RB-7 will interface with 7 modules, meaning 28 ETROCs and 28 sensors.
 
-The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number of linPOL12 regulators, and associated connectors / passive components required to interface with the external systems.
+The Readout Board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number of linPOL12 regulators, and associated connectors / passive components required to interface with the external systems.
 
 -   Each RB will have 1 GBT-SCA
 -   Each RB will have 2 lpGBTs
@@ -65,12 +65,12 @@ The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number o
     -   1 for GBT-SCA digital power
 
 
-<a id="org3927987"></a>
+<a id="org28febbc"></a>
 
 ## Interfaces
 
 
-<a id="orgac8615f"></a>
+<a id="org011cece"></a>
 
 ### Power Board Interface
 
@@ -82,15 +82,11 @@ The interface to the power board will consist of:
 -   The quantity of these connectors is <span class="underline">UNKNOWN</span>.
 
 
-<a id="org9ce041a"></a>
+<a id="org8179a44"></a>
 
 ### Module Interface
 
-1.  Mechanical Interface
-
-    -   the module shall be aligned to the readout board using an <span class="underline">UNKNOWN</span> keying mechanism
-
-2.  Signal Interface
+1.  Signal Interface
 
     The signal interface to the module will consist of:
     
@@ -98,20 +94,20 @@ The interface to the power board will consist of:
     -   The pinout of the module connectors is <span class="underline">UNKNOWN</span>.
     -   The placement of these connectors is <span class="underline">UNKNOWN</span>.
 
-3.  BV Interface
+2.  BV Interface
 
-    The signal interface to the module will consist of:
+    The BV interface to the module will consist of:
     
     -   The BV to module interface will use connector part number <span class="underline">UNKNOWN</span>.
     -   The pinout of these connectors is <span class="underline">UNKNOWN</span>.
     -   The placement of these connectors is <span class="underline">UNKNOWN</span>.
 
 
-<a id="org63ae1ce"></a>
+<a id="orge4290c3"></a>
 
 ### Fiber Optic Interface
 
-The fiber optic interface to CMS is through a VTRX+. The readout board will host both the VTRX+, as well as the MT Ferrule that is required to connect between the VTRX+ and a &ldquo;naked fanout&rdquo;.
+The fiber optic interface to CMS is through a VTRX+. The Readout Board will host both the VTRX+, as well as the MT Ferrule that is required to connect between the VTRX+ and a &ldquo;naked fanout&rdquo;.
 
 -   The size of the cutout for the MT ferrule is <span class="underline">UNKNOWN</span>.
 -   The location of the cutout for the MT ferrule is:
@@ -120,43 +116,43 @@ The fiber optic interface to CMS is through a VTRX+. The readout board will host
     -   RB-7: <span class="underline">UNKNOWN</span>.
 
 
-<a id="orga80c475"></a>
+<a id="org7969624"></a>
 
 ### Low Voltage Interface
 
-The readout board will connect to the low voltage supply to receive ~8V power.
+The Readout Board will connect to the low voltage supply to receive ~8V power.
 
 -   The part number for the LV connector is <span class="underline">UNKNOWN</span>.
 -   The pinout for the LV connector is <span class="underline">UNKNOWN</span>.
 -   The placement for the LV connector is <span class="underline">UNKNOWN</span>.
 
 
-<a id="org2ea8263"></a>
+<a id="org404a233"></a>
 
 ### Programming Interface
 
--   The readout board will provide a programming interface to allow fusing/configuration of the lpGBT through I2C.
+-   The Readout Board will provide a programming interface to allow fusing/configuration of the lpGBT through I2C.
 -   The part number for the programming connector is <span class="underline">UNKNOWN</span>.
 -   The pinout for the programming connector is <span class="underline">UNKNOWN</span>.
 -   The placement for the programming connector is <span class="underline">UNKNOWN</span>.
 
 
-<a id="orgd1be75f"></a>
+<a id="org56a36c4"></a>
 
 ## Signal Connectivity
 
 
-<a id="org964db3d"></a>
+<a id="org905c527"></a>
 
 ### I2C
 
 -   The GBT-SCA will provide one I2C connection for each module.
 -   All ETROCs in a module will share an I2C master.
--   The readout board will provide strong I2C pull-ups.
+-   The Readout Board will provide strong I2C pull-ups.
     -   It is assumed that the modules will not, and have only weak pull-ups.
 
 
-<a id="orga0beb13"></a>
+<a id="org4d4445e"></a>
 
 ### IO
 
@@ -165,7 +161,7 @@ The readout board will connect to the low voltage supply to receive ~8V power.
 -   These IO will be allocated as:
     
     <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    <caption class="t-above"><span class="table-number">Table 1:</span> Allocation of GPIO on the readout board</caption>
+    <caption class="t-above"><span class="table-number">Table 1:</span> Allocation of GPIO on the Readout Board</caption>
     
     <colgroup>
     <col  class="org-left" />
@@ -245,7 +241,7 @@ The readout board will connect to the low voltage supply to receive ~8V power.
     </table>
 
 
-<a id="orgfc9a863"></a>
+<a id="org633568c"></a>
 
 ### Uplinks
 
@@ -266,35 +262,35 @@ Uplinks carry data from the front-end to the back-end.
     -   RB-7 will operate at up to <span class="underline">UNKNOWN</span> Mbps
 
 
-<a id="org389a898"></a>
+<a id="org4bc816b"></a>
 
 ### Downlinks
 
 Downlinks carry data from the back-end to the front-end.
 
--   The readout board will deliver to each module two downlinks that provide a &ldquo;fast command&rdquo; interface to the ETROC.
+-   The Readout Board will deliver to each module two downlinks that provide a &ldquo;fast command&rdquo; interface to the ETROC.
 -   These fast-command downlinks will run at <span class="underline">UNKNOWN</span> Mbps.
 -   The fast command downlinks will be multi-dropped on the module, with each downlink serving 2 ETROCs.
     -   6 downlinks for the RB-3, 12 downlinks for the RB-6, and 14 downlinks for the RB-7.
 -   These downlinks will **not** be phase length matched *between* modules, but **will** be phase length matched *within* modules and to their respective clocks.
 
 
-<a id="org6a8763e"></a>
+<a id="org953974f"></a>
 
 ### Clocking
 
--   The readout board will be responsible for delivering a 40 MHz point-to-point clock to each of the ETROCs it connects to.
+-   The Readout Board will be responsible for delivering a 40 MHz point-to-point clock to each of the ETROCs it connects to.
     -   12 clocks for the RB-3, 24 clocks for the RB-6, and 28 clocks for the RB-7.
 -   These clocks will **not** be phase length matched *between* modules, but **will** be phase length matched *within* modules.
 -   The clock will be distributed only from the **master** lpGBT; the slave lpGBT clock outputs will not be used due to radiation intolerance.
 
 
-<a id="org27ba5d0"></a>
+<a id="orgcfd5821"></a>
 
 ### VTRX
 
 
-<a id="orgdf9abdb"></a>
+<a id="org5f84a90"></a>
 
 ## Monitoring
 
@@ -302,15 +298,15 @@ A GBT-SCA ASIC provides 31 analog inputs with 12-bit resolution, and 4 analog ou
 
 An lpGBT provides 8 analog inputs with 10-bit resolution and 1 analog output with 12-bit resolution.
 
-The readout board will monitor the following analog channels:
+The Readout Board will monitor the following analog channels:
 
 
-<a id="org970e254"></a>
+<a id="orgf8c634e"></a>
 
 ### Voltage Monitoring
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 2:</span> Allocation of monitoring signals on the readout board</caption>
+<caption class="t-above"><span class="table-number">Table 2:</span> Allocation of monitoring signals on the Readout Board</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -521,17 +517,17 @@ The readout board will monitor the following analog channels:
 -   The ETROC voltage monitors assume that a 1.2k resistor is in series with the `1V2_MON` signal from the module.
 
 
-<a id="orgd767ee4"></a>
+<a id="orge38778b"></a>
 
 ## Low Voltage Distribution
 
--   The readout board will provide four 47 uF capacitors connected to each 1.2V ETROC supply.
+-   The Readout Board will provide four 47 uF capacitors connected to each 1.2V ETROC supply.
     -   There will be no additional filtering.
 -   Analog and digital power for the ETROC will not be distinguished.
 -   The low voltage will be ganged such that <span class="underline">UNKNOWN</span> ETROCs share a common power supply.
 
 
-<a id="orgffb81a9"></a>
+<a id="org143c6a1"></a>
 
 ## Bias Voltage Distribution
 
@@ -540,44 +536,46 @@ The readout board will monitor the following analog channels:
     -   <span class="underline">UNKNOWN</span> channels for an RB-3
     -   <span class="underline">UNKNOWN</span> channels for an RB-6
     -   <span class="underline">UNKNOWN</span> channels for an RB-7
--   The readout board will provide a filter for each bias voltage channel consisting of a 200 ohm resistor and 1500 pF capacitor, which will be rated for at least 1000V.
+-   The Readout Board will provide a filter for each bias voltage channel consisting of a 200 ohm resistor and 1500 pF capacitor, which will be rated for at least 1000V.
 
 
-<a id="org2abc166"></a>
+<a id="org08d9dda"></a>
 
 ## Mechanics
 
 
-<a id="orgd784890"></a>
+<a id="org289f396"></a>
 
 ### Outer Dimensions
 
--   The outer dimension of the readout board will follow an <span class="underline">UNKNOWN</span> shape
+-   The outer dimension of the Readout Board will follow an <span class="underline">UNKNOWN</span> shape
 
 
-<a id="orge3793a4"></a>
+<a id="org13e9a10"></a>
 
 ### Screw Holes & Sizes
 
--   The readout board will have <span class="underline">UNKNOWN</span> mounting holes of size <span class="underline">UNKNOWN</span> in the following locations:
+-   The Readout Board will have <span class="underline">UNKNOWN</span> mounting holes of size <span class="underline">UNKNOWN</span> in the following locations:
     1.  <span class="underline">UNKNOWN</span>
 
 
-<a id="org9d51998"></a>
+<a id="org58a16f5"></a>
 
 ### Thickness
 
--   The readout board will be 1.0mm thick with a manufacturing specification of &plusmn; 10%.
+-   The Readout Board will be 1.0mm thick with a manufacturing specification of &plusmn; 10%.
 
 
-<a id="org96cf82b"></a>
+<a id="orgf52184d"></a>
 
 ### Drawings
 
-A drawing of the readout board is available at <span class="underline">UNKNOWN</span>.
+A drawing of the Readout Board is available at <span class="underline">UNKNOWN</span>.
 
 
-<a id="org0061920"></a>
+<a id="org7765ce3"></a>
 
-## Component List
+### Module Mechanics
+
+-   the module shall be aligned to the Readout Board using an <span class="underline">UNKNOWN</span> keying mechanism
 

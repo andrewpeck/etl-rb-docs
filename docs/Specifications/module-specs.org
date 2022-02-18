@@ -18,19 +18,102 @@
 
 * Module Specifications
 
-Authors: {{{author}}}
+- Authors: {{{author}}}
 
-Modification Date: {{{time(%Y-%m-%d %H:%M)}}}
+- Modification Date: {{{time(%Y-%m-%d %H:%M)}}}
 
-Status: This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications
- - Specifications are *{{{COMPLETENESS}}}% complete*.
+- Status: This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications
+  - Specifications are *{{{COMPLETENESS}}}% complete*.
 
-A pdf version of this document can be found [[./module-specs.pdf][here]]. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [[https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/module-specs.org][here]].
+- A pdf version of this document can be found [[./module-specs.pdf][here]]. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [[https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/module-specs.org][here]].
 
 #+TOC: headlines 3
 
 * Specifications
 
+** Description
+
+** Layout
+We denote the "top" side of the PCB as that containing the module and BV connectors.
+
+We denote the "bottom" side of the PCB as that containing the sensor.
+
+*** Sensor Placement
+- {{{SPEC}}} The dimensions of a Sensor+ETROC assembly is {{{UNKNOWN}}} \times {{{UNKNOWN}}} mm.
+- The position of the two Sensor+ETROC assemblies are (positions relative to {{{UNKNOWN}}}):
+  - {{{SPEC}}} x= {{{UNKNOWN}}} mm;  y= {{{UNKNOWN}}} mm.
+  - {{{SPEC}}} x= {{{UNKNOWN}}} mm;  y= {{{UNKNOWN}}} mm.
+*** Wire bonding
+- {{{SPEC}}} A wire bonding diagram of an ETROC is shown in {{{UNKNOWN}}}
+- {{{SPEC}}} The pad pitch will be {{{UNKNOWN}}} mm.
+- {{{SPEC}}} The pad aperture will be {{{UNKNOWN}}} \times {{{UNKNOWN}}} mm.
+- {{{SPEC}}} The pad aperture will be NSMD (non-solder-mask-defined) with the mask oversized by {{{UNKNOWN}}} mm.
+- {{{SPEC}}} The wire bond pads will be located {{{UNKNOWN}}} mm from the edge of the ETROC (measured edge-to-edge).
+*** Grounding
+- {{{SPEC}}} The RB will geometrically isolate analog and digital ground, with specified areas of the PCB filled by a digital ground pour, and others filled by an analog ground pour. The digital and analog grounds will be connected together at a single point.
+  - A drawing of the grounding scheme is shown in {{{UNKNOWN}}}.
+*** Fiducial Markings
+- {{{SPEC}}} The module PCB will have on its bottom side 4 fiducial markers, composed of circles with crosses through them. These markers shall be placed at:
+  1. {{{UNKNOWN}}}
+  2. {{{UNKNOWN}}}
+  3. {{{UNKNOWN}}}
+  4. {{{UNKNOWN}}}
+** Connectivity
+*** Readout Board Interface
+**** Signal Interface
+The signal interface to the readout board will consist of:
+- {{{SPEC}}} The readout board will use connector part number {{{UNKNOWN}}}.
+- {{{SPEC}}} The pinout of the readout board connectors is {{{UNKNOWN}}}.
+- {{{SPEC}}} The placement of these connectors is {{{UNKNOWN}}}.
+**** BV Interface
+The BV interface to the readout board will consist of:
+- {{{SPEC}}} The BV to readout board interface will use connector part number {{{UNKNOWN}}}.
+- {{{SPEC}}} The pinout of these connectors is {{{UNKNOWN}}}.
+- {{{SPEC}}} The placement of these connectors is {{{UNKNOWN}}}.
+*** I2C
+- {{{SPEC}}} The module PCB will provide independent I2C addresses for each ETROC on a module. Addresses will be 0/1/2/3 corresponding to the slot, and are set directly by wire bonds.
+  - Addresses *will not* be set by resistors, and can not be modified.
+- {{{SPEC}}} The module PCB will *not* provide pull-up resistors on I2C lines. These will be provided by the host-system.
+
+*** Low Voltage
+
+- {{{SPEC}}} Each module will receive two /possibly/ independent +1.2V supplies.
+  - They will not be connected together in any way on the module, but /may/ be ganged together on the RB.
+- LV wire bonding is described in the Wire Bonding section
+
+**** Decoupling
+- {{{SPEC}}} The module will provide decoupling capacitors on the +1.2V supplies. The power filtering network will be composed of:
+  1. {{{UNKNOWN}}} resistors of {{{UNKNOWN}}} value
+  2. {{{UNKNOWN}}} resistors of {{{UNKNOWN}}} value
+- {{{SPEC}}} Decoupling capacitors will be placed as close as possible to the ETROC, and follow standard practices to maintain low inductance connections.
+- {{{SPEC}}} Decoupling capacitors will be suitably rated to minimize DC bias effects.
+- {{{SPEC}}} To reduce temperature dependence, ceramics will be chosen where possible with minimal temperature dependence (e.g. X7R).
+**** Monitoring
+- {{{SPEC}}} The module will provide *two* feedback voltages for point-of-load monitoring. It will be delivered back to the RB through a 1.2k 0.5% resistor. These point-of-load monitoring resistors will be placed close to each pair of ETROCs at their respective ends of the module.
+*** Bias Voltage
+- The module will deliver bias voltage to the ETROC
+- BV will be a maximum of {{{UNKNOWN}}} volts.
+- BV wire bonding is described in the Wire Bonding section
+**** Decoupling
+- {{{SPEC}}} {{{UNKNOWN}}}
+*** Signal Connectivity
+- {{{SPEC}}} Each module will receive two {{{UNKNOWN}}} MHz downlinks from the RB
+- {{{SPEC}}} Each module will receive four 40 MHz clocks from the RB
+  - {{{SPEC}}} The clocks shall be length matched and skewed such that for a multi-drop pair of lpGBTs, the clock and data are synchronized at each ETROC's input pads.
+- {{{SPEC}}} Each module will have {{{UNKNOWN}}} uplinks operating at up to {{{UNKNOWN}}} Mbps.
+- {{{SPEC}}} The module will host {{{UNKNOWN}}} temperature sensors, which will be monitored in the RB.
+** Mechanics
+*** Outer Dimensions
+- {{{SPEC}}} The outer dimension of the Module PCB will follow a rectangular shape, with dimensions of {{{UNKNOWN}}} \times {{{UNKNOWN}}}.
+*** Screw Holes & Sizes
+- {{{SPEC}}} The Module PCB will have {{{UNKNOWN}}} mounting holes of size {{{UNKNOWN}}} in the following locations:
+  1. {{{UNKNOWN}}}
+*** Thickness
+- {{{SPEC}}} The Module PCB will be 0.5mm thick with a manufacturing specification of \pm 10%.
+*** Drawings
+A drawing of the Module PCB is available at {{{UNKNOWN}}}.
+*** Mechanical Interface
+- {{{SPEC}}} the module shall be aligned to the Readout Board using an {{{UNKNOWN}}} keying mechanism
 
 * Latex Configuration :noexport:
 
