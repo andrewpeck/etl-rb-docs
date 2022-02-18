@@ -4,36 +4,36 @@
 
 -   Authors: Andrew Peck, Daniel Spitzbart
 
--   Modification Date: 2022-02-18 17:09
+-   Modification Date: 2022-02-18 17:14
 
--   Status: This document is missing 41 pieces of information concerning  34 specifications
-    -   Specifications are **-20.6% complete**.
+-   Status: This document is missing 42 pieces of information concerning  37 specifications
+    -   Specifications are **-13.5% complete**.
 
 -   A pdf version of this document can be found [here](./module-specs.pdf). Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [here](https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/module-specs.org).
 
 
 # Table of Contents
 
-1.  [Module Specifications](#org51b3855)
-2.  [Specifications](#org6c83ab5)
-    1.  [Description](#org653119f)
-    2.  [Layout](#org6470d26)
-        1.  [Sensor Placement](#orgd1877f9)
-        2.  [Wire bonding](#org62d6e19)
-        3.  [Grounding](#orgacc74f9)
-        4.  [Fiducial Markings](#org30d8ff9)
-    3.  [Connectivity](#org7834f24)
-        1.  [Readout Board Interface](#orgfa5e4b8)
-        2.  [I2C](#orgab4cd01)
-        3.  [Low Voltage](#org695536b)
-        4.  [Bias Voltage](#orgc442be7)
-        5.  [Signal Connectivity](#orgf7bad95)
-    4.  [Mechanics](#org9fe7566)
-        1.  [Outer Dimensions](#orgfedea8b)
-        2.  [Screw Holes & Sizes](#orgc9ef02c)
-        3.  [Thickness](#org3f4e0ed)
-        4.  [Drawings](#org8028775)
-        5.  [Mechanical Interface](#org7fc33ae)
+1.  [Module Specifications](#org05cf0a7)
+2.  [Specifications](#org83d5671)
+    1.  [Description](#orgbbaf57e)
+    2.  [Layout](#org7ab325e)
+        1.  [Sensor Placement](#orgfaf97ed)
+        2.  [Wire bonding](#org82e08ef)
+        3.  [Grounding](#orgeeba43f)
+        4.  [Fiducial Markings](#org40f59a4)
+    3.  [Connectivity](#orgcc255da)
+        1.  [Readout Board Interface](#orgfd7fe0a)
+        2.  [I2C](#org838140d)
+        3.  [Low Voltage](#orga3677ef)
+        4.  [Bias Voltage](#orgca363fd)
+        5.  [Signal Connectivity](#org9505c1c)
+    4.  [Mechanics](#org85b80df)
+        1.  [Outer Dimensions](#org90b6f16)
+        2.  [Screw Holes & Sizes](#orgf868485)
+        3.  [Thickness](#orgf281ea9)
+        4.  [Drawings](#orgc1634c1)
+        5.  [Mechanical Interface](#orgae9e144)
 
 
 # Specifications
@@ -109,6 +109,7 @@ We denote the &ldquo;bottom&rdquo; side of the PCB as that containing the sensor
 
 ### I2C
 
+-   The module carries I2C signals (SCL, SCK) from the readout board and distributes it to the 4 ETROCs in a star topology.
 -   The module PCB will provide independent I2C addresses for each ETROC on a module. Addresses will be 0/1/2/3 corresponding to the slot, and are set directly by wire bonds.
     -   Addresses **will not** be set by resistors, and can not be modified.
 -   The module PCB will **not** provide pull-up resistors on I2C lines. These will be provided by the host-system.
@@ -116,9 +117,10 @@ We denote the &ldquo;bottom&rdquo; side of the PCB as that containing the sensor
 
 ### Low Voltage
 
+The module must receive +1.2V from the readout board, and distribute it to the ETROCs in a low inductance, low resistance path.
+
 -   Each module will receive two *possibly* independent +1.2V supplies.
     -   They will not be connected together in any way on the module, but *may* be ganged together on the RB.
--   LV wire bonding is described in the Wire Bonding section
 
 1.  Decoupling
 
@@ -136,13 +138,14 @@ We denote the &ldquo;bottom&rdquo; side of the PCB as that containing the sensor
 
 ### Bias Voltage
 
--   The module will deliver bias voltage to the ETROC
+The module will receive bias voltage from the readout board and distribute it to the modules.
+
 -   BV will be a maximum of <span class="underline">UNKNOWN</span> volts.
--   BV wire bonding is described in the Wire Bonding section
+-   There will be <span class="underline">UNKNOWN</span> bias voltage supplies for each module.
 
 1.  Decoupling
 
-    -   <span class="underline">UNKNOWN</span>
+    -   The BV may or may not be decoupled/filtered on the module PCB <span class="underline">UNKNOWN</span>
 
 
 ### Signal Connectivity
