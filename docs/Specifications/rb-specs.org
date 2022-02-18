@@ -8,9 +8,9 @@
 #+STARTUP: fnadjust
 #+OPTIONS: toc:nil
 #+OPTIONS: ^:nil
-# UNKNOWN (eval (apply 'concat (make-list 5 "\\under{}")))
+
 #+MACRO: UNKNOWN _UNKNOWN_
-#+MACRO: SPEC *Spec:*
+#+MACRO: SPEC
 #+MACRO: COUNT_UNKNOWNS (eval (count-matches "{{{UNKNOWN}}}"))
 #+MACRO: COUNT_SPECS (eval (count-matches "{{{SPEC}}}"))
 #+MACRO: COMPLETENESS (eval (format "%3.1f" (* 100 (- 1 (/ (float (count-matches "{{{UNKNOWN}}}")) (count-matches "{{{SPEC}}}"))))))
@@ -23,17 +23,21 @@ Authors: {{{author}}}
 Modification Date: {{{time(%Y-%m-%d %H:%M)}}}
 
 Status: This document is missing {{{COUNT_UNKNOWNS}}} pieces of information concerning  {{{COUNT_SPECS}}} specifications
- - Specifications are *{{{COMPLETENESS}}}% complete*.
+- Specifications are *{{{COMPLETENESS}}}% complete*.
 
 A pdf version of this document can be found [[./rb-specs.pdf][here]]. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found [[https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/rb-specs.org][here]].
 
-#+TOC: headlines 3
+The latest RB schematic can be found here https://gitlab.cern.ch/cms-etl-electronics/readout-board-pcb/uploads/183954f3a47f967752902acf8ae9c3d3/ETL_RB_V1.6.PDF
 
-* Specifications
+#+TOC: headlines 3
 
 ** Description
 
 The readout board will be designed in 3 different flavors, called the RB-3, RB-6, and RB-7, where the suffix number represents the number of "full-modules" that the readout board services.
+
+- {{{SPEC}}} An RB-3 will interface with 3 modules, meaning 12 ETROCs and 12 sensors.
+- {{{SPEC}}} An RB-6 will interface with 6 modules, meaning 24 ETROCs and 24 sensors.
+- {{{SPEC}}} An RB-7 will interface with 7 modules, meaning 28 ETROCs and 28 sensors.
 
 The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number of linPOL12 regulators, and associated connectors / passive components required to interface with the external systems.
 
@@ -45,15 +49,15 @@ The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number o
   - 2 for VTRX+ TX
   - 1 for GBT-SCA analog power
   - 1 for GBT-SCA digital power
-
+** Drawings
 ** Interfaces
-*** Power Board
+*** Power Board Interface
 The interface to the power board will consist of:
 - {{{SPEC}}} The power board interface will use connector part number {{{UNKNOWN}}}.
 - {{{SPEC}}} The pinout of these connectors is {{{UNKNOWN}}}.
 - {{{SPEC}}} The placement of these connectors is {{{UNKNOWN}}}.
 - {{{SPEC}}} The quantity of these connectors is {{{UNKNOWN}}}.
-*** Module
+*** Module Interface
 **** Mechanical Interface
 - {{{SPEC}}} the module shall be aligned to the readout board using an {{{UNKNOWN}}} keying mechanism
 **** Signal Interface
@@ -66,52 +70,147 @@ The signal interface to the module will consist of:
 - {{{SPEC}}} The BV to module interface will use connector part number {{{UNKNOWN}}}.
 - {{{SPEC}}} The pinout of these connectors is {{{UNKNOWN}}}.
 - {{{SPEC}}} The placement of these connectors is {{{UNKNOWN}}}.
-*** Fiber Optic
+*** Fiber Optic Interface
 The fiber optic interface to CMS is through a VTRX+. The readout board will host both the VTRX+, as well as the MT Ferrule that is required to connect between the VTRX+ and a "naked fanout".
 - {{{SPEC}}} The size of the cutout for the MT ferrule is {{{UNKNOWN}}}.
 - The location of the cutout for the MT ferrule is:
   - {{{SPEC}}} RB-3: {{{UNKNOWN}}}.
   - {{{SPEC}}} RB-6: {{{UNKNOWN}}}.
   - {{{SPEC}}} RB-7: {{{UNKNOWN}}}.
-*** Low Voltage
+*** Low Voltage Interface
 The readout board will connect to the low voltage supply to receive ~8V power.
 - {{{SPEC}}} The part number for the LV connector is {{{UNKNOWN}}}.
 - {{{SPEC}}} The pinout for the LV connector is {{{UNKNOWN}}}.
 - {{{SPEC}}} The placement for the LV connector is {{{UNKNOWN}}}.
+*** Programming Interface
+- {{{SPEC}}} The readout board will provide a programming interface to allow fusing/configuration of the lpGBT through I2C.
+- {{{SPEC}}} The part number for the programming connector is {{{UNKNOWN}}}.
+- {{{SPEC}}} The pinout for the programming connector is {{{UNKNOWN}}}.
+- {{{SPEC}}} The placement for the programming connector is {{{UNKNOWN}}}.
 ** Signal Connectivity
 *** I2C
 - {{{SPEC}}} The GBT-SCA will provide one I2C connection for each module.
 - {{{SPEC}}} All ETROCs in a module will share an I2C master.
 - {{{SPEC}}} The readout board will provide strong I2C pull-ups.
   - It is assumed that the modules will not, and have only weak pull-ups.
-*** SCA IO
-*** Uplink E-links
-*** Downlink E-links
+*** IO
+- A GBT-SCA provides 32 tri-stateable 1.5V GPIO
+- An LPGBT provides 16 tri-stateable 1.2V GPIO
+- These IO will be allocated as:
+  |                |   |          RB-3 |          RB-6 |          RB-7 |
+  |----------------+---+---------------+---------------+---------------|
+  | GBT-SCA RESETB |   |             1 |             1 |             1 |
+  | VTRX LD_RESETB |   |             1 |             1 |             1 |
+  | VTRX LD_DIS    |   |             1 |             1 |             1 |
+  | Module Reset   |   |             3 |             6 |             7 |
+  | PB PGOOD       |   | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+  | PB EN          |   | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+
+*** Uplinks
+
+Uplinks carry data from the front-end to the back-end.
+
+- {{{SPEC}}} These uplinks will *not* be phase length matched.
+
+**** Quantity
+  - {{{SPEC}}} RB-3 will have {{{UNKNOWN}}} uplinks
+  - {{{SPEC}}} RB-6 will have {{{UNKNOWN}}} uplinks
+  - {{{SPEC}}} RB-7 will have {{{UNKNOWN}}} uplinks
+**** Data Rates
+  - {{{SPEC}}} RB-3 will operate at up to {{{UNKNOWN}}} Mbps
+  - {{{SPEC}}} RB-6 will operate at up to {{{UNKNOWN}}} Mbps
+  - {{{SPEC}}} RB-7 will operate at up to {{{UNKNOWN}}} Mbps
+*** Downlinks
+
+Downlinks carry data from the back-end to the front-end.
+
+- {{{SPEC}}} The readout board will deliver to each module two downlinks that provide a "fast command" interface to the ETROC.
+- {{{SPEC}}} These fast-command downlinks will run at {{{UNKNOWN}}} Mbps.
+- {{{SPEC}}} The fast command downlinks will be multi-dropped on the module, with each downlink serving 2 ETROCs.
+  - 6 downlinks for the RB-3, 12 downlinks for the RB-6, and 14 downlinks for the RB-7.
+- {{{SPEC}}} These downlinks will *not* be phase length matched /between/ modules, but *will* be phase length matched /within/ modules and to their respective clocks.
 *** Clocking
+- {{{SPEC}}} The readout board will be responsible for delivering a 40 MHz point-to-point clock to each of the ETROCs it connects to.
+  - 12 clocks for the RB-3, 24 clocks for the RB-6, and 28 clocks for the RB-7.
+- {{{SPEC}}} These clocks will *not* be phase length matched /between/ modules, but *will* be phase length matched /within/ modules.
+- {{{SPEC}}} The clock will be distributed only from the *master* lpGBT; the slave lpGBT clock outputs will not be used due to radiation intolerance.
 *** VTRX
 ** Monitoring
+
+A GBT-SCA ASIC provides 31 analog inputs with 12-bit resolution, and 4 analog outputs with 8-bit resolution, with a range of 0 to 1V.
+
+An lpGBT provides 8 analog inputs with 10-bit resolution and 1 analog output with 12-bit resolution.
+
 The readout board will monitor the following analog channels:
 
-|                     |          RB-3 |          RB-6 |          RB-7 |
-|---------------------+---------------+---------------+---------------|
-| Sensor Bias Voltage | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
-| ETROC Low Voltage   | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
-| VTRX +2.5V RX       |             1 |             1 |             1 |
-| VTRX +2.5V TX       |             1 |             1 |             1 |
-| GBTX +1.5VD         |             1 |             1 |             1 |
-| GBTX +1.5VA         |             1 |             1 |             1 |
-| RB Low Voltage      |             1 |             1 |             1 |
-| VTRX RSSI           |             1 |             1 |             1 |
-| VTRX Temperature    |             1 |             1 |             1 |
-| Temperature Sensors | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+#+NAME: divider_to_lsb
+#+begin_src elisp :exports none
+;; (setq divider "82/100082")
+;; (setq adc "GBT-SCA")
+(cond ((string= type "Voltage")
+       (let* ((div (string-to-number (calc-eval divider)))
+              (num-bits  (if (string= "GBT-SCA" adc) 12 10))
+              (num-levels  (- (expt 2 num-bits) 1))
+              (lsb (/ 1 (* div num-levels)))
+              ) (format "%4.3e V" lsb)))
 
+      (t default))
+#+end_src
+
+#+RESULTS: divider_to_lsb
+: 0.29804937609824705
+
+#+NAME: lsb_to_max
+#+begin_src elisp :exports none
+;; (setq lsb "2.98e-0.1 V")
+;; (setq lsb "0.3")
+;; (setq adc "GBT-SCA")
+;; (setq lsb (string-to-number lsb))
+;; (print lsb)
+(cond ((string= type "Voltage")
+       (let* ((num-bits  (if (string= "GBT-SCA" adc) 12 10))
+              (num-levels  (- (expt 2 num-bits) 1))
+              (maximum (* (string-to-number lsb) num-levels)))
+         (format "%4.1f V" maximum)))
+      (t default))
+;; (* 2 (string-to-number lsb))
+#+end_src
+
+#+RESULTS: lsb_to_max
+: 0.3
+
+
+*** Voltage Monitoring
+|   |               | Type         | Monitored By  | Divider   | LSB         | Range    |     Qty. RB-3 |     Qty. RB-6 |     Qty. RB-7 |
+|---+---------------+--------------+---------------+-----------+-------------+----------+---------------+---------------+---------------|
+| # | Sensor BV     | Voltage      | GBT-SCA       | 82/100082 | 2.980e-01 V | 1220.3 V | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+| # | ETROC +1.2V   | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V | 2.1 V    | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+| # | PB +1.2V      | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V | 2.1 V    | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+| # | RB LV         | Voltage      | GBT-SCA       | 1/11      | 2.686e-03 V | 11.0 V   |             1 |             1 |             1 |
+| # | VTRX +2.5V RX | Voltage      | lpGBT         | 1.5/4.5   | 2.933e-03 V | 3.0 V    |             1 |             1 |             1 |
+| # | VTRX +2.5V TX | Voltage      | lpGBT         | 1.5/4.5   | 2.933e-03 V | 3.0 V    |             1 |             1 |             1 |
+| # | GBTX +1.5VD   | Voltage      | lpGBT         | 2.0/3.5   | 1.711e-03 V | 1.8 V    |             1 |             1 |             1 |
+| # | GBTX +1.5VA   | Voltage      | lpGBT         | 2.0/3.5   | 1.711e-03 V | 1.8 V    |             1 |             1 |             1 |
+| # | VTRX Temp     | Temperature  | lpGBT         |           |             |          |             1 |             1 |             1 |
+| # | RB Temp       | Temperature  | GBT-SCA       |           |             |          |             1 |             1 |             1 |
+| # | PB Temp       | Temperature  | {{{UNKNOWN}}} |           |             |          | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+| # | Module Temp   | Temperature  | {{{UNKNOWN}}} |           |             |          | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+| # | VTRX RSSI     | Photocurrent | lpGBT         |           |             |          |             1 |             1 |             1 |
+#+TBLFM: $6='(org-sbe divider_to_lsb (default $$6) (type $$3) (adc $$4) (divider $$5))::$7='(org-sbe lsb_to_max (default $$7) (type $$3) (adc $$4) (lsb $$6))
+
+- {{{SPEC}}} All voltage dividers will be formed of 0.5% tolerance resistors.
+- {{{SPEC}}} All voltage dividers will be decoupled by 0.1 uF capacitors.
+- {{{SPEC}}} The ETROC voltage monitors assume that a 1.2k resistor is in series with the ~1V2_MON~ signal from the module.
+
+#+begin_comment
 - {{{SPEC}}} Bias voltage monitoring will be through a resistive voltage divider:
-  - It is formed of two 50Mohm resistors (HVC1206T5005JET) and one 82k resistor (RR0510P-823-D) with accuracy of 0.5% for each resistor.
-  - The divider 82/100000=0.00082, providing a nominal monitoring range of 0-1219 volts.
-  - The bias voltage will be monitored by the GBT-SCA.
+- It is formed of two 50Mohm resistors (HVC1206T5005JET) and one 82k resistor (RR0510P-823-D) with accuracy of 0.5% for each resistor.
+- The divider 82/100000=0.00082, providing a nominal monitoring range of 0-1219 volts.
+- The bias voltage will be monitored by the GBT-SCA.
 
 - {{{SPEC}}} VTRX 2.5V will be monitored through a resistive voltage divider:
 - {{{SPEC}}} GBTX 1.5V analog / digital will be monitored through a resistive voltage divider:
+#+end_comment
 
 ** Low Voltage Distribution
 - {{{SPEC}}} The readout board will provide four 47 uF capacitors connected to each 1.2V ETROC supply.
@@ -124,10 +223,15 @@ The readout board will monitor the following analog channels:
   - {{{SPEC}}} {{{UNKNOWN}}} channels for an RB-3
   - {{{SPEC}}} {{{UNKNOWN}}} channels for an RB-6
   - {{{SPEC}}} {{{UNKNOWN}}} channels for an RB-7
-- {{{SPEC}}} The readout board will provide a filter for each bias voltage channel consisting of a 200 ohm resistor and 1500 pF capacitor.
+- {{{SPEC}}} The readout board will provide a filter for each bias voltage channel consisting of a 200 ohm resistor and 1500 pF capacitor, which will be rated for at least 1000V.
 ** Mechanics
-*** {{{SPEC}}} Outer Dimensions {{{UNKNOWN}}}
-*** {{{SPEC}}} Screw Holes & Sizes {{{UNKNOWN}}}
+*** Outer Dimensions
+- {{{SPEC}}} The outer dimension of the readout board will follow an {{{UNKNOWN}}} shape
+*** Screw Holes & Sizes
+- {{{SPEC}}} The readout board will have {{{UNKNOWN}}} mounting holes of size {{{UNKNOWN}}} in the following locations:
+  1. {{{UNKNOWN}}}
+*** Thickness
+- {{{SPEC}}} The readout board will be 1.0mm thick with a manufacturing specification of \pm 10%.
 ** Component List
 
 * Latex Configuration :noexport:
