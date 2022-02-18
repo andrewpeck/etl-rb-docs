@@ -96,6 +96,7 @@ The readout board will connect to the low voltage supply to receive ~8V power.
 - A GBT-SCA provides 32 tri-stateable 1.5V GPIO
 - An LPGBT provides 16 tri-stateable 1.2V GPIO
 - These IO will be allocated as:
+  #+CAPTION: Allocation of GPIO on the readout board
   |                |   |          RB-3 |          RB-6 |          RB-7 |
   |----------------+---+---------------+---------------+---------------|
   | GBT-SCA RESETB |   |             1 |             1 |             1 |
@@ -180,6 +181,8 @@ The readout board will monitor the following analog channels:
 
 
 *** Voltage Monitoring
+#+ATTR_LATEX: :float sideways
+#+CAPTION: Allocation of monitoring signals on the readout board
 |   |               | Type         | Monitored By  | Divider   | LSB         | Range    |     Qty. RB-3 |     Qty. RB-6 |     Qty. RB-7 |
 |---+---------------+--------------+---------------+-----------+-------------+----------+---------------+---------------+---------------|
 | # | Sensor BV     | Voltage      | GBT-SCA       | 82/100082 | 2.980e-01 V | 1220.3 V | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
