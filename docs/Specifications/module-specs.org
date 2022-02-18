@@ -10,7 +10,7 @@
 #+OPTIONS: ^:nil
 # UNKNOWN (eval (apply 'concat (make-list 5 "\\under{}")))
 #+MACRO: UNKNOWN _UNKNOWN_
-#+MACRO: SPEC *Spec:*
+#+MACRO: SPEC
 #+MACRO: COUNT_UNKNOWNS (eval (count-matches "{{{UNKNOWN}}}"))
 #+MACRO: COUNT_SPECS (eval (count-matches "{{{SPEC}}}"))
 #+MACRO: COMPLETENESS (eval (format "%3.1f" (* 100 (- 1 (/ (float (count-matches "{{{UNKNOWN}}}")) (count-matches "{{{SPEC}}}"))))))
@@ -32,6 +32,10 @@
 * Specifications
 
 ** Description
+
+The module PCB is a simple printed circuit board which will host two LGAD sensors, and two LGAD modules. To support these, it will have wire bond pads, a variety of passive components, and a connector interface to attach to a Readout Board (RB).
+
+- Documentation for the ETROC does not exist.
 
 ** Layout
 We denote the "top" side of the PCB as that containing the module and BV connectors.

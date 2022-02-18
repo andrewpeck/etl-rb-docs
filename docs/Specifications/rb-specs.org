@@ -93,16 +93,22 @@ The Readout Board will connect to the low voltage supply to receive ~8V power.
 *** IO
 - A GBT-SCA provides 32 tri-stateable 1.5V GPIO
 - An LPGBT provides 16 tri-stateable 1.2V GPIO
-- These IO will be allocated as:
+- {{{SPEC}}} These IO will be allocated as:
   #+CAPTION: Allocation of GPIO on the Readout Board
-  |                |   |          RB-3 |          RB-6 |          RB-7 |
-  |----------------+---+---------------+---------------+---------------|
-  | GBT-SCA RESETB |   |             1 |             1 |             1 |
-  | VTRX LD_RESETB |   |             1 |             1 |             1 |
-  | VTRX LD_DIS    |   |             1 |             1 |             1 |
-  | Module Reset   |   |             3 |             6 |             7 |
-  | PB PGOOD       |   | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
-  | PB EN          |   | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+  |                | Source  |          RB-3 |          RB-6 |          RB-7 |
+  |----------------+---------+---------------+---------------+---------------|
+  | GBT-SCA RESETB | lpGBT   |             1 |             1 |             1 |
+  | VTRX LD_RESETB | lpGBT   |             1 |             1 |             1 |
+  | VTRX LD_DIS    | lpGBT   |             1 |             1 |             1 |
+  | Module Reset   | GBT-SCA |             3 |             6 |             7 |
+  | PB Good        | GBT-SCA | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+  | PB Enable      | GBT-SCA | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+
+- {{{SPEC}}} The module reset signals will be pulled *up* to the 1.2V lpGBT supply by the readout board
+- {{{SPEC}}} The Power Good signals will be pulled *up* to the 1.2V lpGBT supply by the readout board
+  - They are assumed to be open-collector or open-drain signals /without/ pullups on the DC/DC converters.
+- {{{SPEC}}} The Power Enable signals will be pulled *down* to ground by the readout board.
+  - They will be driven to 1.5V to enable the DC/DC converters. This is assumed to be sufficient to turn on the BPOL modules.
 
 *** Uplinks
 
@@ -155,28 +161,15 @@ The Readout Board will monitor the following analog channels:
       (t default))
 #+end_src
 
-#+RESULTS: divider_to_lsb
-: 0.29804937609824705
-
 #+NAME: lsb_to_max
 #+begin_src elisp :exports none
-;; (setq lsb "2.98e-0.1 V")
-;; (setq lsb "0.3")
-;; (setq adc "GBT-SCA")
-;; (setq lsb (string-to-number lsb))
-;; (print lsb)
 (cond ((string= type "Voltage")
        (let* ((num-bits  (if (string= "GBT-SCA" adc) 12 10))
               (num-levels  (- (expt 2 num-bits) 1))
               (maximum (* (string-to-number lsb) num-levels)))
          (format "%4.1f V" maximum)))
       (t default))
-;; (* 2 (string-to-number lsb))
 #+end_src
-
-#+RESULTS: lsb_to_max
-: 0.3
-
 
 *** Voltage Monitoring
 #+ATTR_LATEX: :float sideways
@@ -184,7 +177,7 @@ The Readout Board will monitor the following analog channels:
 |   |               | Type         | Monitored By  | Divider   | LSB         | Range    |     Qty. RB-3 |     Qty. RB-6 |     Qty. RB-7 |
 |---+---------------+--------------+---------------+-----------+-------------+----------+---------------+---------------+---------------|
 | # | Sensor BV     | Voltage      | GBT-SCA       | 82/100082 | 2.980e-01 V | 1220.3 V | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
-| # | ETROC +1.2V   | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V | 2.1 V    | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
+| # | ETROC +1.2V   | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V | 2.1 V    |             6 |            12 |            14 |
 | # | PB +1.2V      | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V | 2.1 V    | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
 | # | RB LV         | Voltage      | GBT-SCA       | 1/11      | 2.686e-03 V | 11.0 V   |             1 |             1 |             1 |
 | # | VTRX +2.5V RX | Voltage      | lpGBT         | 1.5/4.5   | 2.933e-03 V | 3.0 V    |             1 |             1 |             1 |
@@ -201,6 +194,7 @@ The Readout Board will monitor the following analog channels:
 - {{{SPEC}}} All voltage dividers will be formed of 0.5% tolerance resistors.
 - {{{SPEC}}} All voltage dividers will be decoupled by 0.1 uF capacitors.
 - {{{SPEC}}} The ETROC voltage monitors assume that a 1.2k resistor is in series with the ~1V2_MON~ signal from the module.
+- FIXME:  Voltage dividers should be revisited
 
 #+begin_comment
 - {{{SPEC}}} Bias voltage monitoring will be through a resistive voltage divider:
