@@ -49,7 +49,6 @@ The readout board consists of one or more lpGBTs, a GBT-SCA, a VTRX+, a number o
   - 2 for VTRX+ TX
   - 1 for GBT-SCA analog power
   - 1 for GBT-SCA digital power
-** Drawings
 ** Interfaces
 *** Power Board Interface
 The interface to the power board will consist of:
@@ -232,6 +231,8 @@ The readout board will monitor the following analog channels:
   1. {{{UNKNOWN}}}
 *** Thickness
 - {{{SPEC}}} The readout board will be 1.0mm thick with a manufacturing specification of \pm 10%.
+*** Drawings
+A drawing of the readout board is available at {{{UNKNOWN}}}.
 ** Component List
 
 * Latex Configuration :noexport:
