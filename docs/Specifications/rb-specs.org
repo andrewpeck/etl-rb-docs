@@ -1,21 +1,6 @@
 #+TITLE: Readout Board Specifications
-#+OPTIONS: author:Andrew Peck, Daniel Spitzbart
 #+AUTHOR: Andrew Peck, Daniel Spitzbart
-#+EMAIL: andrew.peck@cern.ch
-#+HTML_HEAD: <link href="theme.css" rel="stylesheet">
-#+STARTUP: latexpreview
-#+STARTUP: fninline
-#+STARTUP: fnadjust
-#+OPTIONS: toc:nil
-#+OPTIONS: ^:nil
-
-#+MACRO: UNKNOWN _UNKNOWN_
-#+MACRO: SPEC
-#+MACRO: COUNT_UNKNOWNS (eval (count-matches "{{{UNKNOWN}}}"))
-#+MACRO: COUNT_SPECS (eval (count-matches "{{{SPEC}}}"))
-#+MACRO: COMPLETENESS (eval (format "%3.1f" (* 100 (- 1 (/ (float (count-matches "{{{UNKNOWN}}}")) (count-matches "{{{SPEC}}}"))))))
-#+LATEX_HEADER:
-
+#+SETUPFILE: ./spec-header.setup
 * Readout Board Specifications
 
 - Authors: {{{author}}}
@@ -167,33 +152,37 @@ The Readout Board will monitor the following analog channels:
        (let* ((num-bits  (if (string= "GBT-SCA" adc) 12 10))
               (num-levels  (- (expt 2 num-bits) 1))
               (maximum (* (string-to-number lsb) num-levels)))
-         (format "%4.1f V" maximum)))
+         (format "%6.1f V" maximum)))
       (t default))
 #+end_src
 
 *** Voltage Monitoring
 #+ATTR_LATEX: :float sideways
 #+CAPTION: Allocation of monitoring signals on the Readout Board
-|   |               | Type         | Monitored By  | Divider   | LSB         | Range    |     Qty. RB-3 |     Qty. RB-6 |     Qty. RB-7 |
-|---+---------------+--------------+---------------+-----------+-------------+----------+---------------+---------------+---------------|
-| # | Sensor BV     | Voltage      | GBT-SCA       | 82/100082 | 2.980e-01 V | 1220.3 V | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
-| # | ETROC +1.2V   | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V | 2.1 V    |             6 |            12 |            14 |
-| # | PB +1.2V      | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V | 2.1 V    | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
-| # | RB LV         | Voltage      | GBT-SCA       | 1/11      | 2.686e-03 V | 11.0 V   |             1 |             1 |             1 |
-| # | VTRX +2.5V RX | Voltage      | lpGBT         | 1.5/4.5   | 2.933e-03 V | 3.0 V    |             1 |             1 |             1 |
-| # | VTRX +2.5V TX | Voltage      | lpGBT         | 1.5/4.5   | 2.933e-03 V | 3.0 V    |             1 |             1 |             1 |
-| # | GBTX +1.5VD   | Voltage      | lpGBT         | 2.0/3.5   | 1.711e-03 V | 1.8 V    |             1 |             1 |             1 |
-| # | GBTX +1.5VA   | Voltage      | lpGBT         | 2.0/3.5   | 1.711e-03 V | 1.8 V    |             1 |             1 |             1 |
-| # | VTRX Temp     | Temperature  | lpGBT         |           |             |          |             1 |             1 |             1 |
-| # | RB Temp       | Temperature  | GBT-SCA       |           |             |          |             1 |             1 |             1 |
-| # | PB Temp       | Temperature  | {{{UNKNOWN}}} |           |             |          | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
-| # | Module Temp   | Temperature  | {{{UNKNOWN}}} |           |             |          | {{{UNKNOWN}}} | {{{UNKNOWN}}} | {{{UNKNOWN}}} |
-| # | VTRX RSSI     | Photocurrent | lpGBT         |           |             |          |             1 |             1 |             1 |
-#+TBLFM: $6='(org-sbe divider_to_lsb (default $$6) (type $$3) (adc $$4) (divider $$5))::$7='(org-sbe lsb_to_max (default $$7) (type $$3) (adc $$4) (lsb $$6))
-
+|   | Sensor        | Type         | Monitored By  | Divider   | LSB         |    Range | Qty. RB-3 | Qty. RB-6 | Qty. RB-7 |
+|---+---------------+--------------+---------------+-----------+-------------+----------+-----------+-----------+-----------|
+| / |               |              |               |           |             |      <r> |           |           |           |
+| # | Sensor BV     | Voltage      | GBT-SCA       | 82/100082 | 2.980e-01 V | 1220.3 V |         0 |         0 |         0 |
+| # | ETROC +1.2V   | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V |    2.1 V |         6 |        12 |        14 |
+| # | PB +1.2V      | Voltage      | GBT-SCA       | 2.0/4.2   | 5.128e-04 V |    2.1 V |         0 |         0 |         0 |
+| # | RB LV         | Voltage      | GBT-SCA       | 1/11      | 2.686e-03 V |   11.0 V |         1 |         1 |         1 |
+| # | VTRX +2.5V RX | Voltage      | lpGBT         | 1.5/4.5   | 2.933e-03 V |    3.0 V |         1 |         1 |         1 |
+| # | VTRX +2.5V TX | Voltage      | lpGBT         | 1.5/4.5   | 2.933e-03 V |    3.0 V |         1 |         1 |         1 |
+| # | GBTX +1.5VD   | Voltage      | lpGBT         | 2.0/3.5   | 1.711e-03 V |    1.8 V |         1 |         1 |         1 |
+| # | GBTX +1.5VA   | Voltage      | lpGBT         | 2.0/3.5   | 1.711e-03 V |    1.8 V |         1 |         1 |         1 |
+| # | VTRX Temp     | Temperature  | lpGBT         |           |             |          |         1 |         1 |         1 |
+| # | RB Temp       | Temperature  | GBT-SCA       |           |             |          |         1 |         1 |         1 |
+| # | PB Temp       | Temperature  | {{{UNKNOWN}}} |           |             |          |         0 |         0 |         0 |
+| # | Module Temp   | Temperature  | {{{UNKNOWN}}} |           |             |          |         0 |         0 |         0 |
+| # | VTRX RSSI     | Photocurrent | lpGBT         |           |             |          |         1 |         1 |         1 |
+|---+---------------+--------------+---------------+-----------+-------------+----------+-----------+-----------+-----------|
+| # | Totals        |              |               |           |             |          |        14 |        20 |        22 |
+#+TBLFM: $6='(org-sbe divider_to_lsb (default $$6) (type $$3) (adc $$4) (divider $$5))::$7='(org-sbe lsb_to_max (default $$7) (type $$3) (adc $$4) (lsb $$6))::@>$8=vsum(@I..@II)::@>$9=vsum(@I..@II)::@>$10=vsum(@I..@II)
 - {{{SPEC}}} All voltage dividers will be formed of 0.5% tolerance resistors.
-- {{{SPEC}}} All voltage dividers will be decoupled by 0.1 uF capacitors.
+- {{{SPEC}}} All analog inputs will be decoupled by 0.1 uF capacitors.
 - {{{SPEC}}} The ETROC voltage monitors assume that a 1.2k resistor is in series with the ~1V2_MON~ signal from the module.
+- {{{UNKNOWN}}} number of PB temperature monitors
+- {{{UNKNOWN}}} number of module temperature monitors
 - FIXME:  Voltage dividers should be revisited
 
 #+begin_comment
@@ -230,54 +219,10 @@ The Readout Board will monitor the following analog channels:
 A drawing of the Readout Board is available at {{{UNKNOWN}}}.
 *** Module Mechanics
 - {{{SPEC}}} the module shall be aligned to the Readout Board using an {{{UNKNOWN}}} keying mechanism
-* Latex Configuration :noexport:
-
-#+NAME: startup
-#+BEGIN_SRC emacs-lisp :outputs none :results none
-(add-to-list
- 'org-latex-classes
- '(
-   "article"
-   "\\documentclass[11pt]{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage[T1]{fontenc}
-\\usepackage{fixltx2e}
-\\usepackage{fullpage}
-\\usepackage{graphicx}
-\\usepackage{longtable}
-\\usepackage{float}
-\\usepackage{wrapfig}
-\\usepackage{rotating}
-\\usepackage[normalem]{ulem}
-\\usepackage{amsmath}
-\\usepackage{textcomp}
-\\usepackage{marvosym}
-\\usepackage{wasysym}
-\\usepackage{amssymb}
-\\usepackage{hyperref}
-%\\usepackage{mathpazo}
-\\renewcommand{\\familydefault}{\\sfdefault}
-\\usepackage{color}
-\\usepackage{enumerate}
-\\definecolor{bg}{rgb}{0.95,0.95,0.95}
-\\tolerance=1000
-[NO-DEFAULT-PACKAGES]
-[PACKAGES]
-[EXTRA]
-\\linespread{1.1}
-\\hypersetup{pdfborder=0 0 0}"
-   ("\\section{%s}"       . "\\section*{%s}")
-   ("\\subsection{%s}"    . "\\subsection*{%s}")
-   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-   ("\\paragraph{%s}"     . "\\paragraph*{%s}")
-   ("\\subparagraph{%s}"  . "\\subparagraph*{%s}"))
- )
-#+END_SRC
-
 * Local Variables :noexport:
 # Local Variables:
 # fill-column: 80
 # eval: (make-variable-buffer-local 'after-save-hook)
 # eval: (add-hook 'after-save-hook (lambda () (org-export-to-file 'md (concat (file-name-base) ".md"))) nil 'local)
-# eval: (progn (org-babel-goto-named-src-block "startup") (org-babel-execute-src-block))
+# eval: (load-file (concat (file-name-directory (buffer-file-name)) "latex-class.el"))
 # End:

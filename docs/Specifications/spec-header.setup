@@ -1,0 +1,12 @@
+#+OPTIONS: author:Andrew Peck, Daniel Spitzbart
+#+HTML_HEAD: <link href="theme.css" rel="stylesheet">
+#+STARTUP: latexpreview
+#+STARTUP: fninline
+#+STARTUP: fnadjust
+#+OPTIONS: toc:nil
+#+OPTIONS: ^:nil
+#+MACRO: UNKNOWN _UNKNOWN_
+#+MACRO: SPEC
+#+MACRO: COUNT_UNKNOWNS (eval (count-matches "{{{UNKNOWN}}}"))
+#+MACRO: COUNT_SPECS (eval (count-matches "{{{SPEC}}}"))
+#+MACRO: COMPLETENESS (eval (format "%3.1f" (* 100 (- 1 (/ (float (count-matches "{{{UNKNOWN}}}")) (count-matches "{{{SPEC}}}"))))))

@@ -1,0 +1,237 @@
+% Created 2022-02-21 Mon 09:55
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+%\usepackage{mathpazo}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{color}
+\usepackage{enumerate}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\tolerance=1000
+
+\linespread{1.1}
+\hypersetup{pdfborder=0 0 0}
+\author{Andrew Peck, Daniel Spitzbart}
+\date{\today}
+\title{Module PCB Specifications}
+\hypersetup{
+ pdfauthor={Andrew Peck, Daniel Spitzbart},
+ pdftitle={Module PCB Specifications},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.91 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{Module Specifications}
+\label{sec:org608ffa0}
+
+\begin{itemize}
+\item Authors: Andrew Peck, Daniel Spitzbart
+
+\item Modification Date: 2022-02-21 09:55
+
+\item Status: This document is missing 42 pieces of information concerning  37 specifications
+\begin{itemize}
+\item Specifications are \textbf{-13.5\% complete}.
+\end{itemize}
+
+\item A pdf version of this document can be found \href{./module-specs.pdf}{here}. Please check the timestamp to ensure it is up to date. The master copy of this document is an emacs org mode file found \href{https://gitlab.cern.ch/cms-etl-electronics/readout-board-docs/-/blob/master/docs/Specifications/module-specs.org}{here}.
+\end{itemize}
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+
+\section{Specifications}
+\label{sec:org6bcb938}
+
+\subsection{Description}
+\label{sec:org631e6b5}
+
+The module PCB is a simple printed circuit board which will host two LGAD sensors, and two LGAD modules. To support these, it will have wire bond pads, a variety of passive components, and a connector interface to attach to a Readout Board (RB).
+
+\begin{itemize}
+\item Documentation for the ETROC does not exist.
+\end{itemize}
+
+\subsection{Layout}
+\label{sec:org73d1153}
+We denote the "top" side of the PCB as that containing the module and BV connectors.
+
+We denote the "bottom" side of the PCB as that containing the sensor.
+
+\subsubsection{Sensor Placement}
+\label{sec:org288d0c8}
+\begin{itemize}
+\item The dimensions of a Sensor+ETROC assembly is \uline{UNKNOWN} \texttimes{} \uline{UNKNOWN} mm.
+\item The position of the two Sensor+ETROC assemblies are (positions relative to \uline{UNKNOWN}):
+\begin{itemize}
+\item x= \uline{UNKNOWN} mm;  y= \uline{UNKNOWN} mm.
+\item x= \uline{UNKNOWN} mm;  y= \uline{UNKNOWN} mm.
+\end{itemize}
+\end{itemize}
+\subsubsection{Wire bonding}
+\label{sec:orgd302e17}
+\begin{itemize}
+\item A wire bonding diagram of an ETROC is shown in \uline{UNKNOWN}
+\item The pad pitch will be \uline{UNKNOWN} mm.
+\item The pad aperture will be \uline{UNKNOWN} \texttimes{} \uline{UNKNOWN} mm.
+\item The pad aperture will be NSMD (non-solder-mask-defined) with the mask oversized by \uline{UNKNOWN} mm.
+\item The wire bond pads will be located \uline{UNKNOWN} mm from the edge of the ETROC (measured edge-to-edge).
+\end{itemize}
+\subsubsection{Grounding}
+\label{sec:org71da851}
+\begin{itemize}
+\item The RB will geometrically isolate analog and digital ground, with specified areas of the PCB filled by a digital ground pour, and others filled by an analog ground pour. The digital and analog grounds will be connected together at a single point.
+\begin{itemize}
+\item A drawing of the grounding scheme is shown in \uline{UNKNOWN}.
+\end{itemize}
+\end{itemize}
+\subsubsection{Fiducial Markings}
+\label{sec:orga2a40f7}
+\begin{itemize}
+\item The module PCB will have on its bottom side 4 fiducial markers, composed of circles with crosses through them. These markers shall be placed at:
+\begin{enumerate}
+\item \uline{UNKNOWN}
+\item \uline{UNKNOWN}
+\item \uline{UNKNOWN}
+\item \uline{UNKNOWN}
+\end{enumerate}
+\end{itemize}
+\subsection{Connectivity}
+\label{sec:org85f2608}
+\subsubsection{Readout Board Interface}
+\label{sec:org15b99a9}
+\begin{enumerate}
+\item Signal Interface
+\label{sec:orgd3a35d3}
+The signal interface to the readout board will consist of:
+\begin{itemize}
+\item The readout board will use connector part number \uline{UNKNOWN}.
+\item The pinout of the readout board connectors is \uline{UNKNOWN}.
+\item The placement of these connectors is \uline{UNKNOWN}.
+\end{itemize}
+\item BV Interface
+\label{sec:org9685554}
+The BV interface to the readout board will consist of:
+\begin{itemize}
+\item The BV to readout board interface will use connector part number \uline{UNKNOWN}.
+\item The pinout of these connectors is \uline{UNKNOWN}.
+\item The placement of these connectors is \uline{UNKNOWN}.
+\end{itemize}
+\end{enumerate}
+\subsubsection{I2C}
+\label{sec:org7ab7be2}
+
+\begin{itemize}
+\item The module carries I2C signals (SCL, SCK) from the readout board and distributes it to the 4 ETROCs in a star topology.
+\item The module PCB will provide independent I2C addresses for each ETROC on a module. Addresses will be 0/1/2/3 corresponding to the slot, and are set directly by wire bonds.
+\begin{itemize}
+\item Addresses \textbf{will not} be set by resistors, and can not be modified.
+\end{itemize}
+\item The module PCB will \textbf{not} provide pull-up resistors on I2C lines. These will be provided by the host-system.
+\end{itemize}
+
+\subsubsection{Low Voltage}
+\label{sec:org12cc19b}
+
+The module must receive +1.2V from the readout board, and distribute it to the ETROCs in a low inductance, low resistance path.
+
+\begin{itemize}
+\item Each module will receive two \emph{possibly} independent +1.2V supplies.
+\begin{itemize}
+\item They will not be connected together in any way on the module, but \emph{may} be ganged together on the RB.
+\end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+\item Decoupling
+\label{sec:org3c59432}
+\begin{itemize}
+\item The module will provide decoupling capacitors on the +1.2V supplies. The power filtering network will be composed of:
+\begin{enumerate}
+\item \uline{UNKNOWN} resistors of \uline{UNKNOWN} value
+\item \uline{UNKNOWN} resistors of \uline{UNKNOWN} value
+\end{enumerate}
+\item Decoupling capacitors will be placed as close as possible to the ETROC, and follow standard practices to maintain low inductance connections.
+\item Decoupling capacitors will be suitably rated to minimize DC bias effects.
+\item To reduce temperature dependence, ceramics will be chosen where possible with minimal temperature dependence (e.g. X7R).
+\end{itemize}
+\item Monitoring
+\label{sec:org4c7fdc1}
+\begin{itemize}
+\item The module will provide \textbf{two} feedback voltages for point-of-load monitoring. It will be delivered back to the RB through a 1.2k 0.5\% resistor. These point-of-load monitoring resistors will be placed close to each pair of ETROCs at their respective ends of the module.
+\end{itemize}
+\end{enumerate}
+\subsubsection{Bias Voltage}
+\label{sec:org2a58f71}
+
+The module will receive bias voltage from the readout board and distribute it to the modules.
+
+\begin{itemize}
+\item BV will be a maximum of \uline{UNKNOWN} volts.
+\item There will be \uline{UNKNOWN} bias voltage supplies for each module.
+\end{itemize}
+\begin{enumerate}
+\item Decoupling
+\label{sec:org595b90e}
+\begin{itemize}
+\item The BV may or may not be decoupled/filtered on the module PCB \uline{UNKNOWN}
+\end{itemize}
+\end{enumerate}
+\subsubsection{Signal Connectivity}
+\label{sec:orge7a7477}
+\begin{itemize}
+\item Each module will receive two \uline{UNKNOWN} MHz downlinks from the RB
+\item Each module will receive four 40 MHz clocks from the RB
+\begin{itemize}
+\item The clocks shall be length matched and skewed such that for a multi-drop pair of lpGBTs, the clock and data are synchronized at each ETROC's input pads.
+\end{itemize}
+\item Each module will have \uline{UNKNOWN} uplinks operating at up to \uline{UNKNOWN} Mbps.
+\item The module will host \uline{UNKNOWN} temperature sensors, which will be monitored in the RB.
+\end{itemize}
+\subsection{Mechanics}
+\label{sec:org81f4448}
+\subsubsection{Outer Dimensions}
+\label{sec:org43a31b1}
+\begin{itemize}
+\item The outer dimension of the Module PCB will follow a rectangular shape, with dimensions of \uline{UNKNOWN} \texttimes{} \uline{UNKNOWN}.
+\end{itemize}
+\subsubsection{Screw Holes \& Sizes}
+\label{sec:org5e11710}
+\begin{itemize}
+\item The Module PCB will have \uline{UNKNOWN} mounting holes of size \uline{UNKNOWN} in the following locations:
+\begin{enumerate}
+\item \uline{UNKNOWN}
+\end{enumerate}
+\end{itemize}
+\subsubsection{Thickness}
+\label{sec:org4608cd5}
+\begin{itemize}
+\item The Module PCB will be 0.5mm thick with a manufacturing specification of \textpm{} 10\%.
+\end{itemize}
+\subsubsection{Drawings}
+\label{sec:orgfcad6f2}
+A drawing of the Module PCB is available at \uline{UNKNOWN}.
+\subsubsection{Mechanical Interface}
+\label{sec:orgbec9825}
+\begin{itemize}
+\item the module shall be aligned to the Readout Board using an \uline{UNKNOWN} keying mechanism
+\end{itemize}
+\end{document}

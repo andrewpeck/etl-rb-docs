@@ -4,7 +4,7 @@
 
 -   Authors: Andrew Peck, Daniel Spitzbart
 
--   Modification Date: 2022-02-18 17:14
+-   Modification Date: 2022-02-21 09:55
 
 -   Status: This document is missing 42 pieces of information concerning  37 specifications
     -   Specifications are **-13.5% complete**.
@@ -14,26 +14,26 @@
 
 # Table of Contents
 
-1.  [Module Specifications](#org05cf0a7)
-2.  [Specifications](#org83d5671)
-    1.  [Description](#orgbbaf57e)
-    2.  [Layout](#org7ab325e)
-        1.  [Sensor Placement](#orgfaf97ed)
-        2.  [Wire bonding](#org82e08ef)
-        3.  [Grounding](#orgeeba43f)
-        4.  [Fiducial Markings](#org40f59a4)
-    3.  [Connectivity](#orgcc255da)
-        1.  [Readout Board Interface](#orgfd7fe0a)
-        2.  [I2C](#org838140d)
-        3.  [Low Voltage](#orga3677ef)
-        4.  [Bias Voltage](#orgca363fd)
-        5.  [Signal Connectivity](#org9505c1c)
-    4.  [Mechanics](#org85b80df)
-        1.  [Outer Dimensions](#org90b6f16)
-        2.  [Screw Holes & Sizes](#orgf868485)
-        3.  [Thickness](#orgf281ea9)
-        4.  [Drawings](#orgc1634c1)
-        5.  [Mechanical Interface](#orgae9e144)
+1.  [Module Specifications](#orgba601eb)
+2.  [Specifications](#orge68a0cc)
+    1.  [Description](#orge4a8b45)
+    2.  [Layout](#org7d396bd)
+        1.  [Sensor Placement](#org38170b8)
+        2.  [Wire bonding](#orga28a76e)
+        3.  [Grounding](#org06518d9)
+        4.  [Fiducial Markings](#org5b373be)
+    3.  [Connectivity](#org32b0195)
+        1.  [Readout Board Interface](#org57ede94)
+        2.  [I2C](#org50a677e)
+        3.  [Low Voltage](#orgece7c5d)
+        4.  [Bias Voltage](#org6c04f04)
+        5.  [Signal Connectivity](#org1b67c1d)
+    4.  [Mechanics](#orgeb89e01)
+        1.  [Outer Dimensions](#org2f98dac)
+        2.  [Screw Holes & Sizes](#org5a04c69)
+        3.  [Thickness](#org844b21c)
+        4.  [Drawings](#org25d89c7)
+        5.  [Mechanical Interface](#org4ea5733)
 
 
 # Specifications
@@ -48,9 +48,9 @@ The module PCB is a simple printed circuit board which will host two LGAD sensor
 
 ## Layout
 
-We denote the &ldquo;top&rdquo; side of the PCB as that containing the module and BV connectors.
+We denote the "top" side of the PCB as that containing the module and BV connectors.
 
-We denote the &ldquo;bottom&rdquo; side of the PCB as that containing the sensor.
+We denote the "bottom" side of the PCB as that containing the sensor.
 
 
 ### Sensor Placement
@@ -152,7 +152,7 @@ The module will receive bias voltage from the readout board and distribute it to
 
 -   Each module will receive two <span class="underline">UNKNOWN</span> MHz downlinks from the RB
 -   Each module will receive four 40 MHz clocks from the RB
-    -   The clocks shall be length matched and skewed such that for a multi-drop pair of lpGBTs, the clock and data are synchronized at each ETROC&rsquo;s input pads.
+    -   The clocks shall be length matched and skewed such that for a multi-drop pair of lpGBTs, the clock and data are synchronized at each ETROC's input pads.
 -   Each module will have <span class="underline">UNKNOWN</span> uplinks operating at up to <span class="underline">UNKNOWN</span> Mbps.
 -   The module will host <span class="underline">UNKNOWN</span> temperature sensors, which will be monitored in the RB.
 

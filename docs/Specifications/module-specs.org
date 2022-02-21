@@ -1,21 +1,6 @@
 #+TITLE: Module PCB Specifications
-#+OPTIONS: author:Andrew Peck, Daniel Spitzbart
 #+AUTHOR: Andrew Peck, Daniel Spitzbart
-#+EMAIL: andrew.peck@cern.ch
-#+HTML_HEAD: <link href="theme.css" rel="stylesheet">
-#+STARTUP: latexpreview
-#+STARTUP: fninline
-#+STARTUP: fnadjust
-#+OPTIONS: toc:nil
-#+OPTIONS: ^:nil
-# UNKNOWN (eval (apply 'concat (make-list 5 "\\under{}")))
-#+MACRO: UNKNOWN _UNKNOWN_
-#+MACRO: SPEC
-#+MACRO: COUNT_UNKNOWNS (eval (count-matches "{{{UNKNOWN}}}"))
-#+MACRO: COUNT_SPECS (eval (count-matches "{{{SPEC}}}"))
-#+MACRO: COMPLETENESS (eval (format "%3.1f" (* 100 (- 1 (/ (float (count-matches "{{{UNKNOWN}}}")) (count-matches "{{{SPEC}}}"))))))
-#+LATEX_HEADER:
-
+#+SETUPFILE: ./spec-header.setup
 * Module Specifications
 
 - Authors: {{{author}}}
@@ -124,54 +109,10 @@ A drawing of the Module PCB is available at {{{UNKNOWN}}}.
 *** Mechanical Interface
 - {{{SPEC}}} the module shall be aligned to the Readout Board using an {{{UNKNOWN}}} keying mechanism
 
-* Latex Configuration :noexport:
-
-#+NAME: startup
-#+BEGIN_SRC emacs-lisp :outputs none :results none
-(add-to-list
- 'org-latex-classes
- '(
-   "article"
-   "\\documentclass[11pt]{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage[T1]{fontenc}
-\\usepackage{fixltx2e}
-\\usepackage{fullpage}
-\\usepackage{graphicx}
-\\usepackage{longtable}
-\\usepackage{float}
-\\usepackage{wrapfig}
-\\usepackage{rotating}
-\\usepackage[normalem]{ulem}
-\\usepackage{amsmath}
-\\usepackage{textcomp}
-\\usepackage{marvosym}
-\\usepackage{wasysym}
-\\usepackage{amssymb}
-\\usepackage{hyperref}
-%\\usepackage{mathpazo}
-\\renewcommand{\\familydefault}{\\sfdefault}
-\\usepackage{color}
-\\usepackage{enumerate}
-\\definecolor{bg}{rgb}{0.95,0.95,0.95}
-\\tolerance=1000
-[NO-DEFAULT-PACKAGES]
-[PACKAGES]
-[EXTRA]
-\\linespread{1.1}
-\\hypersetup{pdfborder=0 0 0}"
-   ("\\section{%s}"       . "\\section*{%s}")
-   ("\\subsection{%s}"    . "\\subsection*{%s}")
-   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-   ("\\paragraph{%s}"     . "\\paragraph*{%s}")
-   ("\\subparagraph{%s}"  . "\\subparagraph*{%s}"))
- )
-#+END_SRC
-
 * Local Variables :noexport:
 # Local Variables:
 # fill-column: 80
 # eval: (make-variable-buffer-local 'after-save-hook)
 # eval: (add-hook 'after-save-hook (lambda () (org-export-to-file 'md (concat (file-name-base) ".md"))) nil 'local)
-# eval: (progn (org-babel-goto-named-src-block "startup") (org-babel-execute-src-block))
+# eval: (progn (find-file "spec-header.org") (org-babel-goto-named-src-block "startup") (org-babel-execute-src-block))
 # End:
