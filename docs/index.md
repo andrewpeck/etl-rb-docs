@@ -36,6 +36,7 @@ CMS ETL Readout Board
     - 2022/01/31 - [Revisiting the System Interface of ETROC2 before it is Finalized](https://indico.cern.ch/event/1122502/contributions/4712326/attachments/2381992/4070121/ETROC-system-interface-Andy-v6.pdf) (Andy L.)
     - 2022/01/31 - [ETROC Update](https://indico.cern.ch/event/1122502/contributions/4712328/attachments/2382698/4071481/ETROC-status-Jan31-2022.pdf) (Ted L.)
     - 2022/02/24 - [Module Assembly Update](https://indico.cern.ch/event/1113876/contributions/4754101/attachments/2397430/4099437/2022-02-24%20ETL%20modules%20and%20assembly%20meeting%20-%20Module%20Design%20Decision.pdf) (C. Fangmeier)
+    - 2022/03/08 - [New Baseline Module Design](https://indico.cern.ch/event/1134373/contributions/4767357/attachments/2404175/4112298/2022-03-08%20TIP%20Meeting%20-%20Module%20Design.pdf)
 - Emulator
     - 2020/04/27 - [EIE Dataformat](https://indico.cern.ch/event/912420/contributions/3837314/attachments/2026902/3391190/Andy_Liu_-_Emulator_v1.1.pdf) (Andy L.)
     - 2021/05/10 - [Emulator v1 Update](https://indico.cern.ch/event/1037766/contributions/4357988/attachments/2242193/3801880/Emulator%20updates%2020210510%20V3.pdf) (Andy L.)
