@@ -1,6 +1,4 @@
-# Home
-
-CMS ETL Readout Board
+# CMS ETL Readout Board
 
 ## Useful Links
 
