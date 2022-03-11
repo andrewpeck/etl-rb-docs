@@ -30,27 +30,6 @@ To load the firmware into the flash to keep it even after a power cycle:
 
     ![vivado_prom_config](vivado_x8.png)
 
-## Emulator Firmware
-
-- Quartus 21.1.0
-- Needs a USB blaster. Restart computer with blaster connected if there a troubles with Quartus finding the blaster.
-
-### Load firmware
-
-Some instructions can be found [here](https://gitlab.cern.ch/cms-etl-electronics/etroc-emulator/-/blob/master/ETROC%20emulator%20version%201/Firmware20210608/Software_quick_start.pdf).
-
-- Start Quartus, open a project and recompile if necessary
-- Start the `Programmer` and load the default `.sof` file onto the board, or load a `.jic` file into
-
-### Useful firmware versions
-
-- Bounce software: for loopback tests and uplink alignment scans [gitlab](https://gitlab.cern.ch/cms-etl-electronics/etroc-emulator/-/tree/master/ETROC%20emulator%20version%201/Bounce%20test%20firmware)
-- ETROC2 v1 firmware [gitlab](https://gitlab.cern.ch/cms-etl-electronics/etroc-emulator/-/tree/master/ETROC%20emulator%20version%201/Firmware20210829)
-
-### Setting the board IP address
-
-- The IP address of the board is set by a 4 bit switch SW12. The 4 bit switch is interpreted as a 4 bit offset which is added to a base IP address (`192.168.0.10+offset`). For example, a setting of 0 will result in `192.168.0.10`. A setting of 5 will result in `192.168.0.15`. This jumper also changes the board's MAC address so that they can be guaranteed unique on the network.
-
 ### Retrieving firmware archives from the CLI
 
 A specific version of the KCU105 firmware can be downloaded from the web using the following script (dependencies are `jq`, `curl`, and `sed`).
@@ -74,3 +53,24 @@ A specific version can then be retrieved with e.g.:
 ```bash
 get_firmware_zip v1.0.4
 ```
+
+## Emulator Firmware
+
+- Quartus 21.1.0
+- Needs a USB blaster. Restart computer with blaster connected if there a troubles with Quartus finding the blaster.
+
+### Load firmware
+
+Some instructions can be found [here](https://gitlab.cern.ch/cms-etl-electronics/etroc-emulator/-/blob/master/ETROC%20emulator%20version%201/Firmware20210608/Software_quick_start.pdf).
+
+- Start Quartus, open a project and recompile if necessary
+- Start the `Programmer` and load the default `.sof` file onto the board, or load a `.jic` file into
+
+### Useful firmware versions
+
+- Bounce software: for loopback tests and uplink alignment scans [gitlab](https://gitlab.cern.ch/cms-etl-electronics/etroc-emulator/-/tree/master/ETROC%20emulator%20version%201/Bounce%20test%20firmware)
+- ETROC2 v1 firmware [gitlab](https://gitlab.cern.ch/cms-etl-electronics/etroc-emulator/-/tree/master/ETROC%20emulator%20version%201/Firmware20210829)
+
+### Setting the board IP address
+
+- The IP address of the board is set by a 4 bit switch SW12. The 4 bit switch is interpreted as a 4 bit offset which is added to a base IP address (`192.168.0.10+offset`). For example, a setting of 0 will result in `192.168.0.10`. A setting of 5 will result in `192.168.0.15`. This jumper also changes the board's MAC address so that they can be guaranteed unique on the network.
