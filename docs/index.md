@@ -21,7 +21,7 @@ CMS ETL Readout Board
     - 2021/10/18 - [Next steps for the PB design](https://indico.cern.ch/event/1088033/contributions/4574114/attachments/2329314/3968911/ETL-SingleChannel-DC-DC-Converter-S_Los-Oct04-2021.pdf) (Sergey Los)
     - 2021/10/25 - [DC-DC Converter(Output Voltage Ripple Edition)](https://indico.cern.ch/event/1090414/contributions/4584064/attachments/2333416/3976947/ETL-DC-DC-Converter2-S_Los-Oct25-2021.pdf) (Sergey Los)
     - 2021/10/28 - [Update on LV powering scheme and Services](https://indico.cern.ch/event/1092037/contributions/4592092/attachments/2336204/3982128/2021-10-28_ETL%20integration%20meeting.pdf) (Natalia K.)
-    - 2022/03/02 - [A Possible Cross-Section for Flex Cable Solution Along the RBs](../files/ETL-FlexCabling-Option-S_Los-Mar01-2022.pdf) (Sergey L.)
+    - 2022/03/02 - [A Possible Cross-Section for Flex Cable Solution Along the RBs](/files/ETL-FlexCabling-Option-S_Los-Mar01-2022.pdf) (Sergey L.)
 - Readout Board
     - 2020/04/05 - [ETL Readout Board v2](https://indico.cern.ch/event/906805/contributions/3815774/attachments/2016073/3369701/2020-04-05-ETL-RBv2-Boston.pdf) (Andy P.)
     - 2020/07/13 - [Readout Board Interfaces](https://indico.cern.ch/event/939160/contributions/3946133/attachments/2073487/3481402/20200713_readout_board_interfaces.pdf) (Andy P.)
@@ -38,7 +38,9 @@ CMS ETL Readout Board
     - 2022/01/31 - [ETROC Update](https://indico.cern.ch/event/1122502/contributions/4712328/attachments/2382698/4071481/ETROC-status-Jan31-2022.pdf) (Ted L.)
     - 2022/02/24 - [Module Assembly Update](https://indico.cern.ch/event/1113876/contributions/4754101/attachments/2397430/4099437/2022-02-24%20ETL%20modules%20and%20assembly%20meeting%20-%20Module%20Design%20Decision.pdf) (C. Fangmeier)
     - 2022/03/08 - [New Baseline Module Design](https://indico.cern.ch/event/1134373/contributions/4767357/attachments/2404175/4112298/2022-03-08%20TIP%20Meeting%20-%20Module%20Design.pdf)
+    - 2022/02/28 - [Mockup Update](https://indico.cern.ch/event/1133829/contributions/4757782/attachments/2399069/4102365/20220228_etl_readout_board.pptx.pdf)
 - Emulator
     - 2020/04/27 - [EIE Dataformat](https://indico.cern.ch/event/912420/contributions/3837314/attachments/2026902/3391190/Andy_Liu_-_Emulator_v1.1.pdf) (Andy L.)
     - 2021/05/10 - [Emulator v1 Update](https://indico.cern.ch/event/1037766/contributions/4357988/attachments/2242193/3801880/Emulator%20updates%2020210510%20V3.pdf) (Andy L.)
     - 2021/08/30 - [Emulator Update](https://indico.cern.ch/event/1070316/contributions/4500708/attachments/2300134/3912295/Emulator%20updates%2020210830_v5.pdf) (Andy L.)
+    - 2022/02/28 - [Emulator Firmware v2 Update](https://indico.cern.ch/event/1133829/contributions/4757780/attachments/2398940/4102139/Emulator%20status%2020220228%20v3%20-%20Read-Only.pdf)
