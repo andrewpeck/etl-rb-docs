@@ -50,3 +50,27 @@ Some instructions can be found [here](https://gitlab.cern.ch/cms-etl-electronics
 ### Setting the board IP address
 
 - The IP address of the board is set by a 4 bit switch SW12. The 4 bit switch is interpreted as a 4 bit offset which is added to a base IP address (`192.168.0.10+offset`). For example, a setting of 0 will result in `192.168.0.10`. A setting of 5 will result in `192.168.0.15`. This jumper also changes the board's MAC address so that they can be guaranteed unique on the network.
+
+### Retrieving firmware archives from the CLI
+
+A specific version of the KCU105 firmware can be downloaded from the web using the following script (dependencies are `jq`, `curl`, and `sed`).
+
+``` bash
+get_firmware_zip() {
+    version=$1
+    project="etl_test_fw"
+    projectid="107856"
+
+    file=$project-$version.zip
+    url=$(curl  "https://gitlab.cern.ch/api/v4/projects/${projectid}/releases/$version" | jq '.description' | sed -n "s|.*\[$project.zip\](\(.*\)).*|\1|p")
+    wget $url
+    unzip $file
+}
+
+```
+
+A specific version can then be retrieved with e.g.:
+
+```bash
+get_firmware_zip v1.0.4
+```
